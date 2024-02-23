@@ -6,4 +6,26 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AutoMapper" Version="13.0.1" />
+      <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+      <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EleventhProject.Server.Application.Contracts\EleventhProject.Server.Application.Contracts.csproj" />
+      <ProjectReference Include="..\EleventhProject.Server.Application\EleventhProject.Server.Application.csproj" />
+      <ProjectReference Include="..\EleventhProject.Server.Infrastructure.Implementations\EleventhProject.Server.Infrastructure.Implementations.csproj" />
+        <ProjectReference Include="..\EleventhProject.Server.Infrastructure.Migrations\EleventhProject.Server.Infrastructure.Migrations.csproj" />
+    </ItemGroup>
+
 </Project>

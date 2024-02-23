@@ -5,7 +5,6 @@ namespace EleventhProject.Server.Infrastructure.Entities.User;
 
 public class UserEntity : Entity
 {
-    public int CityId { get; set; }
     public CityEntity City { get; set; }
     public string UserName { get; set; }
     public string Password { get; set; }

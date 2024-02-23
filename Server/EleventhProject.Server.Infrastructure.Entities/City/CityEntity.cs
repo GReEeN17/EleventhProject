@@ -4,5 +4,5 @@ namespace EleventhProject.Server.Infrastructure.Entities.City;
 
 public class CityEntity : Entity
 {
-    private string Title { get; set; }
+    public string Title { get; set; }
 }
