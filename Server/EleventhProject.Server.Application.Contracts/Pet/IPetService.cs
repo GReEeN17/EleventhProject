@@ -8,7 +8,9 @@ namespace EleventhProject.Server.Application.Contracts.Pet;
 
 public interface IPetService
 {
-    PetModel CreatePet(UserModel owner, PetTypeModel petType, BreedModel breed, BloodTypeModel bloodType, string name, int age, int weight);
+    PetModel CreatePet(UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
 
     PetModel GetPetById(int petId);
+
+    PetModel UpdatePet(int petId, UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
 }
