@@ -1,6 +1,0 @@
-@EleventhProject.Server.Presentation_HostAddress = http://localhost:5234
-
-GET {{EleventhProject.Server.Presentation_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
