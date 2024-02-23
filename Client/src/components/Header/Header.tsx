@@ -39,9 +39,6 @@ const Header = observer(() => {
                 <Link href="/">
                     <div className="logo">
                         <Logo />
-                        <div className="title">
-                            <p>FNM</p>
-                        </div>
                     </div>
                 </Link>
                 <div className="links">

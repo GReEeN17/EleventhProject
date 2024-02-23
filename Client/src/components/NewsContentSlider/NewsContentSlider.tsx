@@ -11,37 +11,37 @@ export default function Newsletter() {
             id: "1",
             title: 'Lorem ipsum dolor sit amet, consectetur',
             date: 'JUNE 11, 2023',
-            src: '/images/slider/pic.jpg'
+            src: '/images/slider/photo1.jpg'
         },
         {
             id: "2",
             title: 'Lorem ipsum',
             date: 'JUNE 9, 2023',
-            src: '/images/slider/pic2.jpg'
+            src: '/images/slider/photo2.jpg'
         },
         {
             id: "3",
             title: 'Lorem ipsum dolor sit amet, consectetur',
             date: 'JUNE 7, 2023',
-            src: '/images/slider/pic.jpg'
+            src: '/images/slider/photo1.jpg'
         },
         {
             id: "4",
             title: 'Lorem ipsum dolor sit amet, consectetur',
             date: 'JUNE 5, 2023',
-            src: '/images/slider/pic2.jpg'
+            src: '/images/slider/photo2.jpg'
         },
         {
             id: "5",
             title: 'Lorem ipsum dolor sit amet, consectetur',
             date: 'JUNE 3, 2023',
-            src: '/images/slider/pic.jpg'
+            src: '/images/slider/photo1.jpg'
         },
         {
             id: "6",
             title: 'Lorem ipsum dolor sit amet, consectetur',
             date: 'JUNE 1, 2023',
-            src: '/images/slider/pic2.jpg'
+            src: '/images/slider/photo2.jpg'
         },
     ]
 
