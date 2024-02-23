@@ -12,8 +12,8 @@
 /dataSources/
 /dataSources.local.xml
 
-/Client/node_modules
-/Client/.next
+/Client/node_modules/
+/Client/.next/
 
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/EleventhProject.iml
