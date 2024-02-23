@@ -6,11 +6,6 @@ namespace EleventhProject.Server.Application.DonationHistory;
 
 public class DonationHistoryService : IDonationHistoryService
 {
-    public DonationHistoryModel CreateDonationHistory(int recipientId, int donorId)
-    {
-        throw new NotImplementedException();
-    }
-
     public DonationHistoryModel CreateDonationHistory(PetModel recipient, PetModel donor, DateTime date)
     {
         throw new NotImplementedException();

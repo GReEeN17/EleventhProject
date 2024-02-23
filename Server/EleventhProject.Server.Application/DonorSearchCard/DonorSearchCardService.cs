@@ -7,12 +7,6 @@ namespace EleventhProject.Server.Application.DonorSearchCard;
 
 public class DonorSearchCardService : IDonorSearchCardService
 {
-    public DonorSearchCardModel CreateDonorSearch(int creatorId, int clinicId, string reason, int bloodAmount, DateTime endDate,
-        bool isUrgent)
-    {
-        throw new NotImplementedException();
-    }
-
     public DonorSearchCardModel CreateDonorSearchCard(UserModel creator, ClinicModel clinic, string reason, int bloodAmount,
         DateTime endDate, bool isUrgent)
     {

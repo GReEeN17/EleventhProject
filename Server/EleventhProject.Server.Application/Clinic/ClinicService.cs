@@ -6,11 +6,6 @@ namespace EleventhProject.Server.Application.Clinic;
 
 public class ClinicService : IClinicService
 {
-    public ClinicModel CreateClinic(int cityId, string Title, string Address)
-    {
-        throw new NotImplementedException();
-    }
-
     public ClinicModel CreateClinic(CityModel city, string Title, string Address)
     {
         throw new NotImplementedException();
