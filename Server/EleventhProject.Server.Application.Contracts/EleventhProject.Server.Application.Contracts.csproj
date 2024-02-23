@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\EleventhProject.Server.Application.Models\EleventhProject.Server.Application.Models.csproj" />
+    </ItemGroup>
+
 </Project>
