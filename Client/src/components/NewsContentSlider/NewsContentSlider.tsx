@@ -1,48 +1,61 @@
 "use client";
 import '@/components/NewsContentSlider/NewsContentSlider.scss'
 import Image from 'next/image'
-import React, { useState } from 'react'
-
+import React, {useState} from 'react'
 
 
 export default function Newsletter() {
-    const news = [
+    const orders = [
         {
             id: "1",
-            title: 'Lorem ipsum dolor sit amet, consectetur',
-            date: 'JUNE 11, 2023',
-            src: '/images/slider/photo1.jpg'
+            name: 'Хвостенко Марк',
+            blood_type: 'O(I) Rh-',
+            date_end: 'До 26 февраля',
+            address: 'Санкт-Петербург, Кронверкский пр-т 49, жопа',
+            owner: 'Зелень Александр',
+            required: '4',
+            current: '1'
         },
         {
             id: "2",
-            title: 'Lorem ipsum',
-            date: 'JUNE 9, 2023',
-            src: '/images/slider/photo2.jpg'
+            name: 'Иванов Иван',
+            blood_type: 'A(II) Rh+',
+            date_end: 'До 27 февраля',
+            address: 'Москва, Тверская ул. 12, квартира 12',
+            owner: 'Петров Петр',
+            required: '2',
+            current: '1'
         },
         {
             id: "3",
-            title: 'Lorem ipsum dolor sit amet, consectetur',
-            date: 'JUNE 7, 2023',
-            src: '/images/slider/photo1.jpg'
+            name: 'Сидоров Сергей',
+            blood_type: 'B(III) Rh-',
+            date_end: 'До 28 февраля',
+            address: 'Новосибирск, Красный пр-т 100, квартира 200',
+            owner: 'Иванов Иван',
+            required: '3',
+            current: '1'
         },
         {
             id: "4",
-            title: 'Lorem ipsum dolor sit amet, consectetur',
-            date: 'JUNE 5, 2023',
-            src: '/images/slider/photo2.jpg'
+            name: 'Кузнецов Кирилл',
+            blood_type: 'AB(IV) Rh+',
+            date_end: 'До 29 февраля',
+            address: 'Екатеринбург, Ленина ул. 30, квартира 30',
+            owner: 'Кузнецов Кирилл',
+            required: '4',
+            current: '1'
         },
         {
             id: "5",
-            title: 'Lorem ipsum dolor sit amet, consectetur',
-            date: 'JUNE 3, 2023',
-            src: '/images/slider/photo1.jpg'
-        },
-        {
-            id: "6",
-            title: 'Lorem ipsum dolor sit amet, consectetur',
-            date: 'JUNE 1, 2023',
-            src: '/images/slider/photo2.jpg'
-        },
+            name: 'Смирнов Александр',
+            blood_type: 'O(I) Rh-',
+            date_end: 'До 30 февраля',
+            address: 'Санкт-Петербург, Невский пр-т 1, квартира 1',
+            owner: 'Смирнов Александр',
+            required: '1',
+            current: '1'
+        }
     ]
 
     const [index, setIndex] = useState(0)
@@ -72,7 +85,7 @@ export default function Newsletter() {
         const nextIndex = index + 1;
         document.querySelector('.NewsArrowsLeft')!.classList.remove('disabled');
         document.querySelector('.NewsArrowsLeftBtn')!.classList.remove('disabled');
-        if (nextIndex >= news.length - 3) {
+        if (nextIndex >= orders.length - 3) {
             document.querySelector('.NewsArrowsRight')!.classList.add('disabled')
             document.querySelector('.NewsArrowsRightBtn')!.classList.add('disabled')
             setIndex(nextIndex);
@@ -83,17 +96,37 @@ export default function Newsletter() {
 
     const transformValue = `translateX(-${index * itemWidth}px)`;
 
-    const Slides = () => news.map((item) => (
+    const Slides = () => orders.map((item) => (
         <div className="SliderItem" key={item.id}>
-            <div className="SliderItemImg">
-                <Image src={item.src} width={300} height={300} alt="newsPic" />
-            </div>
             <div className="SliderItemContent">
                 <div className="SliderItemDate">
-                    <p>{item.date}</p>
+                    <p>{item.date_end}</p>
                 </div>
-                <div className="SliderItemTitle">
-                    <p>{item.title}</p>
+                <div>
+                    <p>{item.name}</p>
+                </div>
+                <div className="SliderItemBloodType">
+                    <p>{item.blood_type}</p>
+                </div>
+                <div className="SliderItemAddress">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 12.75C13.6569 12.75 15 11.4069 15 9.75C15 8.09315 13.6569 6.75 12 6.75C10.3431 6.75 9 8.09315 9 9.75C9 11.4069 10.3431 12.75 12 12.75Z"
+                            stroke="#4E5355" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path
+                            d="M19.5 9.75C19.5 16.5 12 21.75 12 21.75C12 21.75 4.5 16.5 4.5 9.75C4.5 7.76088 5.29018 5.85322 6.6967 4.4467C8.10322 3.04018 10.0109 2.25 12 2.25C13.9891 2.25 15.8968 3.04018 17.3033 4.4467C18.7098 5.85322 19.5 7.76088 19.5 9.75V9.75Z"
+                            stroke="#4E5355" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <p>{item.address}</p>
+                </div>
+                <div>
+                    <p>{item.current}/{item.required} уже найдено</p>
+                </div>
+                <div className="SliderItemOwner">
+                    <p>Ищет</p>
+                </div>
+                <div>
+                    <p>{item.owner}</p>
                 </div>
             </div>
         </div>
@@ -104,24 +137,24 @@ export default function Newsletter() {
             <div className="InTheNews">
                 <div className="HeadNews">
                     <div className="InTheNewsText">
-                        <p>In the news</p>
+                        <p>Заявки на донорство</p>
                     </div>
                     <div className="NewsArrows">
-                        <div className="NewsArrowsLeft disabled" onClick={handlePrev} >
-                            <button className="NewsArrowsLeftBtn disabled" />
+                        <div className="NewsArrowsLeft disabled" onClick={handlePrev}>
+                            <button className="NewsArrowsLeftBtn disabled"/>
                         </div>
-                        <div className="NewsArrowsRight" onClick={handleNext} >
-                            <button className="NewsArrowsRightBtn" />
+                        <div className="NewsArrowsRight" onClick={handleNext}>
+                            <button className="NewsArrowsRightBtn"/>
                         </div>
                     </div>
 
                 </div>
                 <div className="NewsContentSliderContainer">
                     <div className="NewsContentSlider">
-                        <div className="SliderContent" style={{ transform: transformValue }}>
-                            <Slides />
+                        <div className="SliderContent" style={{transform: transformValue}}>
+                            <Slides/>
                         </div>
-                    </div >
+                    </div>
                 </div>
             </div>
         </div>

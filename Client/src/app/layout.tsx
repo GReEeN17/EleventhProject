@@ -24,7 +24,7 @@ export default observer(function RootLayout({ children }: { children: React.Reac
     }).finally(() => setLoading(false))
   }, [])
 
-  if (loading) {
+  if (false) {
     return (
       <html lang="en">
         <body className={inter.className}>
