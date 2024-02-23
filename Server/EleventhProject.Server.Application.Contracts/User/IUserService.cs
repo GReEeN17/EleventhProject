@@ -1,3 +1,4 @@
+using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Contracts.DonorSearchCard;
 using EleventhProject.Server.Application.Contracts.Pet;
 using EleventhProject.Server.Application.Models.Breed;
@@ -10,8 +11,9 @@ namespace EleventhProject.Server.Application.Contracts.User;
 
 public interface IUserService
 {
-    IPetService _petService { get; }
-    IDonorSearchCardService _donorSearchCardService { get; }
+    IPetService PetService { get; }
+    IDonorSearchCardService DonorSearchCardService { get; }
+    IUserRepository UserRepository { get; }
 
     UserModel GetUserById(int id);
 
