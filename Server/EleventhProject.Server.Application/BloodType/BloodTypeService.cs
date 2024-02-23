@@ -1,7 +1,7 @@
 using EleventhProject.Server.Application.Contracts.BloodType;
 using EleventhProject.Server.Application.Models.BloodType;
 
-namespace EleventhProject.Server.Application.BloodTypeService;
+namespace EleventhProject.Server.Application.BloodType;
 
 public class BloodTypeService : IBloodTypeService
 {
