@@ -1,0 +1,12 @@
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/bin/Debug/net8.0/EleventhProject.Server.Application.Models.deps.json
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/bin/Debug/net8.0/EleventhProject.Server.Application.Models.dll
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/bin/Debug/net8.0/EleventhProject.Server.Application.Models.pdb
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/obj/Debug/net8.0/EleventhProject.Server.Application.Models.GeneratedMSBuildEditorConfig.editorconfig
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/obj/Debug/net8.0/EleventhProject.Server.Application.Models.AssemblyInfoInputs.cache
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/obj/Debug/net8.0/EleventhProject.Server.Application.Models.AssemblyInfo.cs
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/obj/Debug/net8.0/EleventhProject.Server.Application.Models.csproj.CoreCompileInputs.cache
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/obj/Debug/net8.0/EleventhProject.Server.Application.Models.sourcelink.json
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/obj/Debug/net8.0/EleventhProject.Server.Application.Models.dll
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/obj/Debug/net8.0/refint/EleventhProject.Server.Application.Models.dll
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/obj/Debug/net8.0/EleventhProject.Server.Application.Models.pdb
+/Users/azelen/Desktop/OwnProjects/EleventhProject/EleventhProject.Server.Application.Models/obj/Debug/net8.0/ref/EleventhProject.Server.Application.Models.dll

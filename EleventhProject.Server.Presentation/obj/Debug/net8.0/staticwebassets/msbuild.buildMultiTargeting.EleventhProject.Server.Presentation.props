@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/EleventhProject.Server.Presentation.props" />
+</Project>
