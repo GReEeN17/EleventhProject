@@ -4,5 +4,7 @@ namespace EleventhProject.Server.Application.Contracts.BloodType;
 
 public interface IBloodTypeService
 {
-    public BloodTypeModel CreateBloodType(string title);
+    BloodTypeModel CreateBloodType(string title);
+
+    BloodTypeModel GetBloodTypeById(int bloodTypeId);
 }

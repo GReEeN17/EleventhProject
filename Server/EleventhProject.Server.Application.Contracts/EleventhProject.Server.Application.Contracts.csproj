@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\EleventhProject.Server.Application.Abstractions\EleventhProject.Server.Application.Abstractions.csproj" />
       <ProjectReference Include="..\EleventhProject.Server.Application.Models\EleventhProject.Server.Application.Models.csproj" />
     </ItemGroup>
 
