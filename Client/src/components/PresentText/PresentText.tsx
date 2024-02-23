@@ -5,12 +5,12 @@ export default function PresentText() {
       <div className="PresentText">
         <div className="PresentText">
           <div className="Info">
-            <p>Your digital needs</p>
-            <p>Our marketplace solutions</p>
+            <p>Животные нуждаются</p>
+            <p>в вас</p>
           </div>
           <div className="UnderInfo">
-            <p>Lorem ipsum dolor sit amet, consectetur </p>
-            <p>Lorem ipsum dolor sit amet, consectetur lorem ipsum dolor sit amet, consectetur</p>
+            <p>Присоединяйтесь к нашему сообществу и помогите вашему питомцу</p>
+            <p>получить необходимую помощь от самых заботливых людей.</p>
           </div>
         </div>
       </div>

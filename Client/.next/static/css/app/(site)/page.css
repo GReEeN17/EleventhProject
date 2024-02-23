@@ -99,6 +99,41 @@
   font-display: swap;
   font-style: italic;
 }
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[5].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[5].oneOf[13].use[5]!./public/fonts/Ramona/Ramona.css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+  font-family: "Ramona";
+  src: url(/_next/static/media/Ramona.741aebc8.ttf) format("ttf");
+}
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[5].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[5].oneOf[13].use[5]!./src/components/PresentText/PresentText.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+.Info {
+  display: flex;
+  flex-direction: column;
+  color: #F0F0F0;
+  text-align: center;
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.54);
+  font-size: 4rem;
+  line-height: 116%;
+  margin-top: 3rem;
+  -webkit-user-select: none; /* для Safari */
+  -moz-user-select: none; /* для Firefox */ /* для IE */
+  user-select: none;
+}
+
+.UnderInfo {
+  margin-top: 1rem;
+  color: rgba(240, 240, 240, 0.58);
+  text-align: center;
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
+  -webkit-user-select: none; /* для Safari */
+  -moz-user-select: none; /* для Firefox */ /* для IE */
+  user-select: none;
+  margin-bottom: 5rem;
+}
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[5].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[5].oneOf[13].use[5]!./public/fonts/Satoshi/css/satoshi.css ***!
   \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -185,40 +220,6 @@
   font-weight: 900;
   font-display: swap;
   font-style: italic;
-}
-/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[5].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[5].oneOf[13].use[5]!./src/components/PresentText/PresentText.scss ***!
-  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-@charset "UTF-8";
-.Info {
-  display: flex;
-  flex-direction: column;
-  color: #F0F0F0;
-  text-align: center;
-  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.54);
-  font-size: 4rem;
-  font-family: GeneralSans-bold;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 116%;
-  -webkit-user-select: none; /* для Safari */
-  -moz-user-select: none; /* для Firefox */ /* для IE */
-  user-select: none;
-}
-
-.UnderInfo {
-  margin-top: 1rem;
-  color: rgba(240, 240, 240, 0.58);
-  text-align: center;
-  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.6);
-  font-size: 1.125rem;
-  font-family: Satoshi-Bold;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  -webkit-user-select: none; /* для Safari */
-  -moz-user-select: none; /* для Firefox */ /* для IE */
-  user-select: none;
 }
 /*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[13].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[5].oneOf[13].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[5].oneOf[13].use[5]!./src/components/Newsletter/Newsletter.scss ***!
@@ -531,7 +532,6 @@
   color: #F0F0F0;
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.54);
   font-size: 2rem;
-  font-family: GeneralSans-semibold;
   font-style: normal;
   font-weight: 700;
   line-height: 116%;
@@ -547,7 +547,7 @@
   border-radius: 1.1875rem;
   overflow: hidden;
   height: 17.4rem;
-  background: url(/_next/static/media/BuildInfoSliderBg.cd34e335.svg) no-repeat;
+  background: url(/_next/static/media/BuildInfoSliderBg.9ee04add.svg) no-repeat;
 }
 
 .BuildInfoSliderItem {
@@ -576,7 +576,7 @@
 .BuildInfoSliderItemText {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  margin: 2rem;
   width: 30rem;
   height: 100%;
   padding-left: 1.2rem;
@@ -585,10 +585,9 @@
 }
 
 .BuildInfoSliderItemText h2 {
-  color: #F0F0F0;
+  color: #ffffff;
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.54);
   font-size: 1.5rem;
-  font-family: GeneralSans-semibold;
   font-style: normal;
   font-weight: 700;
   line-height: 116%;
@@ -596,15 +595,14 @@
 }
 
 .BuildInfoSliderItemText p {
-  color: #7B1DC6;
+  color: #ea6b6b;
   font-size: 1.125rem;
   font-style: normal;
-  font-family: GeneralSans-semibold;
   font-weight: 700;
   line-height: normal;
 }
 
 .buttonTab.active {
-  background: #7B1DC6;
+  background: #f36c80;
   color: #F0F0F0;
 }

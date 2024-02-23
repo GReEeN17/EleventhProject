@@ -1,4 +1,4 @@
-// File: /Users/leikooo/Desktop/MarketPlace-front-/src/app/(site)/[id]/page.tsx
+// File: /Users/leikooo/Desktop/EleventhProject/Client/src/app/(site)/[id]/page.tsx
 import * as entry from '../../../../../src/app/(site)/[id]/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

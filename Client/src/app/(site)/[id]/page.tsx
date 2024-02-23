@@ -1,4 +1,3 @@
-import AvatarBlock from "@/components/AvatarBlock/AvatarBlock"
 import './page.scss';
 import { getProfile } from "@/http/userAPI";
 import { notFound } from 'next/navigation'
@@ -19,7 +18,10 @@ export default async function Profile({ params: { id } }: pageProps) {
         <div className="Profile">
             <div className="HomeContent">
                 <div className="headerContainer">
-                    <AvatarBlock name={data.name} />
+                    <div className="headerInfo">
+                        <h1>{data.name}</h1>
+                        <h2>{data.email}</h2>
+                    </div>
                 </div>
             </div>
         </div>
