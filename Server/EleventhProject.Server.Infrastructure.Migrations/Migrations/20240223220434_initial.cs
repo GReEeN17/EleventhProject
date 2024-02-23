@@ -194,6 +194,8 @@ namespace EleventhProject.Server.Infrastructure.Migrations.Migrations
                     blood_amount = table.Column<int>(type: "integer", nullable: false),
                     end_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     is_required = table.Column<bool>(type: "boolean", nullable: false),
+                    pets_current = table.Column<int>(type: "integer", nullable: false),
+                    pets_needed = table.Column<int>(type: "integer", nullable: false),
                     is_active = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>

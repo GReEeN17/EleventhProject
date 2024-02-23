@@ -9,4 +9,9 @@ public class PetVaccinationService : IPetVaccinationService
     {
         throw new NotImplementedException();
     }
+
+    public PetVaccinationModel GetPetVaccinationById(int petVaccinationId)
+    {
+        throw new NotImplementedException();
+    }
 }

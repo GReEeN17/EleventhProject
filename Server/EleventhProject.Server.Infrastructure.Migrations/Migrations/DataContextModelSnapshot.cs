@@ -225,6 +225,14 @@ namespace EleventhProject.Server.Infrastructure.Migrations.Migrations
                         .HasColumnType("boolean")
                         .HasColumnName("is_required");
 
+                    b.Property<int>("PetsCurrent")
+                        .HasColumnType("integer")
+                        .HasColumnName("pets_current");
+
+                    b.Property<int>("PetsNeeded")
+                        .HasColumnType("integer")
+                        .HasColumnName("pets_needed");
+
                     b.Property<string>("Reason")
                         .IsRequired()
                         .HasMaxLength(1024)

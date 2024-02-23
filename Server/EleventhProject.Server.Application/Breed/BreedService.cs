@@ -9,4 +9,9 @@ public class BreedService : IBreedService
     {
         throw new NotImplementedException();
     }
+
+    public BreedModel GetBreedById(int breedId)
+    {
+        throw new NotImplementedException();
+    }
 }

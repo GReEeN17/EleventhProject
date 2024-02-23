@@ -36,6 +36,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -83,6 +88,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Abstractions/EleventhProject.Server.Application.Abstractions.csproj": {
+                "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Abstractions/EleventhProject.Server.Application.Abstractions.csproj"
+              },
               "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj": {
                 "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj"
               }
@@ -93,6 +101,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -146,6 +159,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -193,6 +211,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Abstractions/EleventhProject.Server.Application.Abstractions.csproj": {
+                "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Abstractions/EleventhProject.Server.Application.Abstractions.csproj"
+              },
               "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj": {
                 "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj"
               }
@@ -203,6 +224,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -256,6 +282,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -316,6 +347,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -404,13 +440,22 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Implementations/EleventhProject.Server.Infrastructure.Implementations.csproj": {
+                "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Implementations/EleventhProject.Server.Infrastructure.Implementations.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -489,6 +534,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {

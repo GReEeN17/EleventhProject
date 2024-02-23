@@ -9,4 +9,9 @@ public class CityService : ICityService
     {
         throw new NotImplementedException();
     }
+
+    public CityModel GetCityById(int cityId)
+    {
+        throw new NotImplementedException();
+    }
 }

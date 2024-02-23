@@ -9,4 +9,9 @@ public class BloodTypeService : IBloodTypeService
     {
         throw new NotImplementedException();
     }
+
+    public BloodTypeModel GetBloodTypeById(int bloodTypeId)
+    {
+        throw new NotImplementedException();
+    }
 }

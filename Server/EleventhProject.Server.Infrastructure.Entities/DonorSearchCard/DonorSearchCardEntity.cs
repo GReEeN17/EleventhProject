@@ -12,4 +12,6 @@ public class DonorSearchCardEntity : Entity
     public int BloodAmount { get; set; }
     public DateTime EndDate { get; set; }
     public bool IsUrgent { get; set; }
+    public int PetsCurrent { get; set; }
+    public int PetsNeeded { get; set; }
 }

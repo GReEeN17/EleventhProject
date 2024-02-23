@@ -9,4 +9,9 @@ public class VaccinationDictService : IVaccinationDictService
     {
         throw new NotImplementedException();
     }
+
+    public VaccinationDictModel GetVaccinationDictById(int vaccinationDictId)
+    {
+        throw new NotImplementedException();
+    }
 }

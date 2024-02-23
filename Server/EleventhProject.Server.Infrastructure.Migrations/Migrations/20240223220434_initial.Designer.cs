@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EleventhProject.Server.Infrastructure.Migrations.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240223170911_initial")]
+    [Migration("20240223220434_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -227,6 +227,14 @@ namespace EleventhProject.Server.Infrastructure.Migrations.Migrations
                     b.Property<bool>("IsUrgent")
                         .HasColumnType("boolean")
                         .HasColumnName("is_required");
+
+                    b.Property<int>("PetsCurrent")
+                        .HasColumnType("integer")
+                        .HasColumnName("pets_current");
+
+                    b.Property<int>("PetsNeeded")
+                        .HasColumnType("integer")
+                        .HasColumnName("pets_needed");
 
                     b.Property<string>("Reason")
                         .IsRequired()

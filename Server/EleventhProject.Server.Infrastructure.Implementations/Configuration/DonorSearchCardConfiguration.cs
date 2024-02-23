@@ -47,5 +47,15 @@ public class DonorSearchCardConfiguration : IEntityTypeConfiguration<DonorSearch
             .Property(donorSearchCard => donorSearchCard.IsActive)
             .IsRequired()
             .HasColumnName("is_active");
+
+        builder
+            .Property(donorSearchCard => donorSearchCard.PetsCurrent)
+            .IsRequired()
+            .HasColumnName("pets_current");
+
+        builder
+            .Property(donorSearchCard => donorSearchCard.PetsNeeded)
+            .IsRequired()
+            .HasColumnName("pets_needed");
     }
 }
