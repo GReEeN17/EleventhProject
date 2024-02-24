@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.PetVaccination;
 using EleventhProject.Server.Infrastructure.Entities.PetVaccination;
 
@@ -5,7 +6,7 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IPetVaccinationRepository
 {
-    IQueryable<PetVaccinationEntity> GetPetVaccination(int petVaccinationId);
+    IQueryable<PetVaccinationEntity> GetPetVaccination(Expression<Func<PetVaccinationEntity, bool>> selector);
     IQueryable<PetVaccinationEntity> GetPetVaccination();
     IQueryable<PetVaccinationEntity> GetAllPetVaccinations();
     

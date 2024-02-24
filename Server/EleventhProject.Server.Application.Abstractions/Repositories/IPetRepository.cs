@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Infrastructure.Entities.Pet;
 
@@ -5,7 +6,7 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IPetRepository
 {
-    IQueryable<PetEntity> GetPet(int petId);
+    IQueryable<PetEntity> GetPet(Expression<Func<PetEntity, bool>> selector);
     IQueryable<PetEntity> GetPet();
     IQueryable<PetEntity> GetAllPets();
     

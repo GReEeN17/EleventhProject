@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.City;
 using EleventhProject.Server.Infrastructure.Entities.City;
 
@@ -5,7 +6,7 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface ICityRepository
 {
-    IQueryable<CityEntity> GetCity(int cityId);
+    IQueryable<CityEntity> GetCity(Expression<Func<CityEntity, bool>> selector);
     IQueryable<CityEntity> GetCity();
     IQueryable<CityEntity> GetAllCities();
     

@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Infrastructure.Entities.DonationHistory;
 
@@ -5,7 +6,7 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IDonationHistoryRepository
 {
-    IQueryable<DonationHistoryEntity> GetDonationHistory(int donationHistoryId);
+    IQueryable<DonationHistoryEntity> GetDonationHistory(Expression<Func<DonationHistoryEntity, bool>> selector);
     IQueryable<DonationHistoryEntity> GetDonationHistory();
     IQueryable<DonationHistoryEntity> GetAllDonationHistories();
     

@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.VaccinationDict;
 using EleventhProject.Server.Infrastructure.Entities.VaccinationDict;
 
@@ -5,7 +6,7 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IVaccinationDictRepository
 {
-    IQueryable<VaccinationDictEntity> GetVaccinationDict(int vaccinationDictId);
+    IQueryable<VaccinationDictEntity> GetVaccinationDict(Expression<Func<VaccinationDictEntity, bool>> selector);
     IQueryable<VaccinationDictEntity> GetVaccinationDict();
     IQueryable<VaccinationDictEntity> GetAllVaccinationDicts();
     

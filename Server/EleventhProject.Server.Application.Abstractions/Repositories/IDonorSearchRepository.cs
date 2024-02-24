@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.DonorSearchCard;
 using EleventhProject.Server.Infrastructure.Entities.DonationHistory;
@@ -7,7 +8,7 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IDonorSearchRepository
 {
-    IQueryable<DonorSearchCardEntity> GetDonorSearchCard(int donorSearchCardId);
+    IQueryable<DonorSearchCardEntity> GetDonorSearchCard(Expression<Func<DonorSearchCardEntity, bool>> selector);
     IQueryable<DonorSearchCardEntity> GetDonorSearchCard();
     IQueryable<DonorSearchCardEntity> GetAllDonorSearchCards();
     

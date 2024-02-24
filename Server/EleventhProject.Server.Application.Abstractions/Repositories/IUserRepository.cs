@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.User;
 using EleventhProject.Server.Infrastructure.Entities.User;
 
@@ -5,7 +6,7 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IUserRepository
 {
-    IQueryable<UserEntity> GetUser(int userId);
+    IQueryable<UserEntity> GetUser(Expression<Func<UserEntity, bool>> selector);
     IQueryable<UserEntity> GetUser();
     IQueryable<UserEntity> GetAllUsers();
     

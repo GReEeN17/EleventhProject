@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.BloodType;
 using EleventhProject.Server.Infrastructure.Entities.BloodType;
 
@@ -5,7 +6,7 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IBloodTypeRepository
 {
-    IQueryable<BloodTypeEntity> GetBloodType(int bloodTypeId);
+    IQueryable<BloodTypeEntity> GetBloodType(Expression<Func<BloodTypeEntity, bool>> selector);
     IQueryable<BloodTypeEntity> GetBloodType();
     IQueryable<BloodTypeEntity> GetAllBloodTypes();
     
