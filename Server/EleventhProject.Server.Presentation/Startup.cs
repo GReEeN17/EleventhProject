@@ -29,6 +29,7 @@ using EleventhProject.Server.Application.VaccinationDict;
 using EleventhProject.Server.Infrastructure.Entities.User;
 using EleventhProject.Server.Infrastructure.Implementations.DataContext;
 using EleventhProject.Server.Infrastructure.Implementations.Repositories;
+using EleventhProject.Server.Presentation.ProjectMapper;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OAuth;
@@ -88,7 +89,7 @@ public class Startup
                         assembly.MigrationsAssembly("EleventhProject.Server.Infrastructure.Migrations"));
         });
 
-        services.AddAutoMapper(typeof(Startup));
+        services.AddAutoMapper(typeof(AppMappingProfile));
 
         services.Configure<JwtOptions>(_configuration.GetSection(nameof(JwtOptions)));
 

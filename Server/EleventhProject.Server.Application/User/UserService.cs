@@ -19,6 +19,7 @@ using EleventhProject.Server.Infrastructure.Entities.City;
 using EleventhProject.Server.Infrastructure.Entities.BloodType;
 using EleventhProject.Server.Infrastructure.Entities.User;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Application.User;
 
@@ -61,8 +62,8 @@ public class UserService : IUserService
 
     public Task<string> Login(string username, string password)
     {
-        var entity = _userRepository.GetUser().Where(user => user.UserName == username);
-        var model = UserMapper.MapToModel(entity.First());
+        var entity = _userRepository.GetUser().Include(user => user.City).FirstOrDefault(user => user.UserName == username);
+        var model = _mapper.Map<UserModel>(entity);
 
         if (model.Password != password)
         {
@@ -77,15 +78,8 @@ public class UserService : IUserService
     public Task<string> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
         string middleName)
     {
-        var cityModel = _cityService.GetCityById(cityId).Result;
-        var userModel = new UserModel(cityModel, username, password, phoneNumber, surname, name, middleName);
-        //var entity = _mapper.Map<UserEntity>(userModel);
-        var entity = UserMapper.MapToEntity(userModel); 
-        //var entity = new UserEntity(new CityEntity(userModel.City.Title), userModel.UserName, userModel.Password, userModel.PhoneNumber, userModel.Surname, userModel.Name, userModel.MiddleName);
-
-        var result = _userRepository.CreateUser(entity);
-
-        return Task.FromResult(JsonSerializer.Serialize(result));
+        CityModel cityModel = _cityService.GetCityById(cityId).Result;
+        
     }
 
     public Task<string> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname,
@@ -107,43 +101,5 @@ public class UserService : IUserService
     public IAsyncEnumerable<string> GetDonationHistory(int userId)
     {
         throw new NotImplementedException();
-    }
-}
-
-public static class UserMapper
-{
-    public static UserEntity MapToEntity(UserModel userModel)
-    {
-        if (userModel == null)
-            return null;
-
-        return new UserEntity
-        {
-            City = new CityEntity(userModel.City.Title),
-            UserName = userModel.UserName,
-            Password = userModel.Password,
-            PhoneNumber = userModel.PhoneNumber,
-            Surname = userModel.Surname,
-            Name = userModel.Name,
-            MiddleName = userModel.MiddleName,
-            NotReadyForDonation = userModel.NotReadyForDonation,
-            AbsenceBeginDate = userModel.AbsenceBeginDate,
-            AbsenceEndDate = userModel.AbsenceEndDate
-        };
-    }
-    
-    public static UserModel MapToModel(UserEntity userEntity)
-    {
-        if (userEntity == null)
-            return null;
-
-        return new UserModel(
-            new CityModel(userEntity.City.Title),
-            userEntity.UserName,
-            userEntity.Password,
-            userEntity.PhoneNumber,
-            userEntity.Surname,
-            userEntity.Name,
-            userEntity.MiddleName);
     }
 }
