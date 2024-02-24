@@ -1,6 +1,7 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.VaccinationDict;
 using EleventhProject.Server.Infrastructure.Entities.VaccinationDict;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -14,56 +15,58 @@ public class VaccinationDictRepository : IVaccinationDictRepository
     }
     public IQueryable<VaccinationDictEntity> GetVaccinationDict(int vaccinationDictId)
     {
-        throw new NotImplementedException();
+        return _context.Set<VaccinationDictEntity>().Where(x => x.Id == vaccinationDictId).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<VaccinationDictEntity> GetVaccinationDict()
     {
-        throw new NotImplementedException();
+        return _context.Set<VaccinationDictEntity>().Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<VaccinationDictEntity> GetAllVaccinationDicts()
     {
-        throw new NotImplementedException();
+        return _context.Set<VaccinationDictEntity>().AsQueryable();
     }
 
-    public Task<VaccinationDictEntity> CreateVaccinationDict(VaccinationDictModel vaccinationDict)
+    public async Task<VaccinationDictEntity> CreateVaccinationDict(VaccinationDictEntity vaccinationDict)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<VaccinationDictEntity>().AddAsync(vaccinationDict);
+        return entitiy.Entity;
+    }
+    public async Task CreateRangeVaccinationDicts(IEnumerable<VaccinationDictEntity> vaccinationDicts)
+    {
+        await _context.Set<VaccinationDictEntity>().AddRangeAsync(vaccinationDicts);
     }
 
-    public Task CreateRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts)
+    public async Task DeleteVaccinationDict(int vaccinationDictId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<VaccinationDictEntity>().FirstOrDefaultAsync(x => x.Id == vaccinationDictId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task DeleteVaccinationDict(int vaccinationDictId)
+    public async Task RemoveVaccinationDict(VaccinationDictEntity vaccinationDict)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<VaccinationDictEntity>().Remove(vaccinationDict));
     }
 
-    public Task RemoveVaccinationDict(VaccinationDictModel vaccinationDict)
+    public async Task RemoveRangeVaccinationDicts(IEnumerable<VaccinationDictEntity> vaccinationDicts)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<VaccinationDictEntity>().RemoveRange(vaccinationDicts));
     }
 
-    public Task RemoveRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts)
+    public async Task UpdateVaccinationDict(VaccinationDictEntity vaccinationDict)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<VaccinationDictEntity>().Update(vaccinationDict));
     }
 
-    public Task UpdateVaccinationDict(VaccinationDictModel vaccinationDict)
+    public async Task UpdateRangeVaccinationDicts(IEnumerable<VaccinationDictEntity> vaccinationDicts)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<VaccinationDictEntity>().UpdateRange(vaccinationDicts));
     }
 
-    public Task UpdateRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts)
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
-    }
-
-    public Task<int> SaveChangesAsync()
-    {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }

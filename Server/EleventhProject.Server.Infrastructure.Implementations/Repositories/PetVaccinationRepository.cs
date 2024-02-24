@@ -2,6 +2,7 @@ using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.PetVaccination;
 using EleventhProject.Server.Application.Models.VaccinationDict;
 using EleventhProject.Server.Infrastructure.Entities.PetVaccination;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -15,56 +16,59 @@ public class PetVaccinationRepository : IPetVaccinationRepository
     }
     public IQueryable<PetVaccinationEntity> GetPetVaccination(int petVaccinationId)
     {
-        throw new NotImplementedException();
+        return _context.Set<PetVaccinationEntity>().Where(x => x.Id == petVaccinationId).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<PetVaccinationEntity> GetPetVaccination()
     {
-        throw new NotImplementedException();
+        return _context.Set<PetVaccinationEntity>().Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<PetVaccinationEntity> GetAllPetVaccinations()
     {
-        throw new NotImplementedException();
+        return _context.Set<PetVaccinationEntity>().AsQueryable();
     }
 
-    public Task<PetVaccinationEntity> CreatePetVaccination(PetVaccinationModel petVaccination)
+    public async Task<PetVaccinationEntity> CreatePetVaccination(PetVaccinationEntity petVaccination)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<PetVaccinationEntity>().AddAsync(petVaccination);
+        return entitiy.Entity;
     }
 
-    public Task CreateRangePetVaccinations(IEnumerable<PetVaccinationModel> petVaccinations)
+    public async Task CreateRangePetVaccinations(IEnumerable<PetVaccinationEntity> petVaccinations)
     {
-        throw new NotImplementedException();
+        await _context.Set<PetVaccinationEntity>().AddRangeAsync(petVaccinations);
     }
 
-    public Task DeletePetVaccination(int petVaccinationId)
+    public async Task DeletePetVaccination(int petVaccinationId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<PetVaccinationEntity>().FirstOrDefaultAsync(x => x.Id == petVaccinationId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task RemovePetVaccination(PetVaccinationModel petVaccination)
+    public async Task RemovePetVaccination(PetVaccinationEntity petVaccination)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<PetVaccinationEntity>().Remove(petVaccination));
     }
 
-    public Task RemoveRangePetVaccinations(IEnumerable<PetVaccinationModel> petVaccinations)
+    public async Task RemoveRangePetVaccinations(IEnumerable<PetVaccinationEntity> petVaccinations)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<PetVaccinationEntity>().RemoveRange(petVaccinations));
     }
 
-    public Task UpdatePetVaccination(PetVaccinationModel petVaccination)
+    public async Task UpdatePetVaccination(PetVaccinationEntity petVaccination)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<PetVaccinationEntity>().Update(petVaccination));
     }
 
-    public Task UpdateRangePetVaccinations(IEnumerable<PetVaccinationModel> petVaccinations)
+    public async Task UpdateRangePetVaccinations(IEnumerable<PetVaccinationEntity> petVaccinations)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<PetVaccinationEntity>().UpdateRange(petVaccinations));
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }

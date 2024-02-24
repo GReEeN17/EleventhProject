@@ -7,11 +7,11 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IDonorSearchRepository
 {
-    IQueryable<DonationHistoryEntity> GetDonorSearchCard(int donorSearchCardId);
-    IQueryable<DonationHistoryEntity> GetDonorSearchCard();
-    IQueryable<DonationHistoryEntity> GetAllDonorSearchCards();
+    IQueryable<DonorSearchCardEntity> GetDonorSearchCard(int donorSearchCardId);
+    IQueryable<DonorSearchCardEntity> GetDonorSearchCard();
+    IQueryable<DonorSearchCardEntity> GetAllDonorSearchCards();
     
-    Task<DonationHistoryEntity> CreateDonorSearchCard(DonorSearchCardEntity donorSearchCard);
+    Task<DonorSearchCardEntity> CreateDonorSearchCard(DonorSearchCardEntity donorSearchCard);
     Task CreateRangeDonorSearchCard(IEnumerable<DonorSearchCardEntity> donorSearchCards);
 
     Task DeleteDonorSearchCard(int donorSearchCardId);
