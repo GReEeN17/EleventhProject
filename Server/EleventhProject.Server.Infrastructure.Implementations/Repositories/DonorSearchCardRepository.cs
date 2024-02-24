@@ -4,6 +4,8 @@ using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.DonorSearchCard;
 using EleventhProject.Server.Application.Models.User;
 using EleventhProject.Server.Infrastructure.Entities.DonationHistory;
+using EleventhProject.Server.Infrastructure.Entities.DonorSearchCard;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -15,58 +17,61 @@ public class DonorSearchCardRepository : IDonorSearchRepository
     {
         _context = context;
     }
-    public IQueryable<DonationHistoryEntity> GetDonorSearchCard(int donorSearchCardId)
+    public IQueryable<DonorSearchCardEntity> GetDonorSearchCard(int donorSearchCardId)
     {
-        throw new NotImplementedException();
+        return _context.Set<DonorSearchCardEntity>().Where(x => x.Id == donorSearchCardId).Where(x => x.IsActive).AsQueryable();
     }
 
-    public IQueryable<DonationHistoryEntity> GetDonorSearchCard()
+    public IQueryable<DonorSearchCardEntity> GetDonorSearchCard()
     {
-        throw new NotImplementedException();
+        return _context.Set<DonorSearchCardEntity>().Where(x => x.IsActive).AsQueryable();
     }
 
-    public IQueryable<DonationHistoryEntity> GetAllDonorSearchCards()
+    public IQueryable<DonorSearchCardEntity> GetAllDonorSearchCards()
     {
-        throw new NotImplementedException();
+        return _context.Set<DonorSearchCardEntity>().AsQueryable();
     }
 
-    public Task<DonationHistoryEntity> CreateDonorSearchCard(DonorSearchCardModel donorSearchCard)
+    public async Task<DonorSearchCardEntity> CreateDonorSearchCard(DonorSearchCardEntity donorSearchCard)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<DonorSearchCardEntity>().AddAsync(donorSearchCard);
+        return entitiy.Entity;
     }
 
-    public Task CreateRangeDonorSearchCard(IEnumerable<DonorSearchCardModel> donorSearchCards)
+    public async Task CreateRangeDonorSearchCard(IEnumerable<DonorSearchCardEntity> donorSearchCards)
     {
-        throw new NotImplementedException();
+        await _context.Set<DonorSearchCardEntity>().AddRangeAsync(donorSearchCards);
     }
 
-    public Task DeleteDonorSearchCard(int donorSearchCardId)
+    public async Task DeleteDonorSearchCard(int donorSearchCardId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<DonorSearchCardEntity>().FirstOrDefaultAsync(x => x.Id == donorSearchCardId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task RemoveDonorSearchCard(DonorSearchCardModel donorSearchCard)
+    public async Task RemoveDonorSearchCard(DonorSearchCardEntity donorSearchCard)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<DonorSearchCardEntity>().Remove(donorSearchCard));
     }
 
-    public Task RemoveRangeDonorSearchCards(IEnumerable<DonorSearchCardModel> donorSearchCards)
+    public async Task RemoveRangeDonorSearchCards(IEnumerable<DonorSearchCardEntity> donorSearchCards)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<DonorSearchCardEntity>().RemoveRange(donorSearchCards));
     }
 
-    public Task UpdateDonorSearchCard(DonorSearchCardModel donorSearchCard)
+    public async Task UpdateDonorSearchCard(DonorSearchCardEntity donorSearchCard)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<DonorSearchCardEntity>().Update(donorSearchCard));
     }
 
-    public Task UpdateRangeDonorSearchCards(IEnumerable<DonorSearchCardModel> donorSearchCards)
+    public async Task UpdateRangeDonorSearchCards(IEnumerable<DonorSearchCardEntity> donorSearchCards)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<DonorSearchCardEntity>().UpdateRange(donorSearchCards));
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }
