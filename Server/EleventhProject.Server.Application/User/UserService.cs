@@ -83,7 +83,7 @@ public class UserService : IUserService
     }
 
     public Task<string> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname,
-        string name, string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate)
+        string name, string middleName, bool notReadyForDonation, DateTime? AbsenceBeginDate, DateTime? AbsenceEndDate)
     {
         throw new NotImplementedException();
     }

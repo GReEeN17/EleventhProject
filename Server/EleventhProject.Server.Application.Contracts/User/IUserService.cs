@@ -12,17 +12,17 @@ namespace EleventhProject.Server.Application.Contracts.User;
 
 public interface IUserService
 {
-    Task<string> GetUserById(int id);
+    Task<UserModel> GetUserById(int id);
 
     Task<string> Login(string username, string password);
 
-    Task<string> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
+    Task<UserModel> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
         string middleName);
     
     Task<string> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname, string name,
-        string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate);
+        string middleName, bool notReadyForDonation, DateTime? AbsenceBeginDate, DateTime? AbsenceEndDate);
 
-    Task CreatePet(int userId, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
+    Task<PetModel> CreatePet(int userId, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
 
     Task CreateDonorSearchCard(int userId, int clinicId, string reason, int BloodAmount, DateTime EndDate,
         bool IsUrgent);
