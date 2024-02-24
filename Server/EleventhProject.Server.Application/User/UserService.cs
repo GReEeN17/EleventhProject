@@ -1,16 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 using AutoMapper;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Contracts.City;
 using EleventhProject.Server.Application.Contracts.DonorSearchCard;
 using EleventhProject.Server.Application.Contracts.Pet;
 using EleventhProject.Server.Application.Contracts.User;
+using EleventhProject.Server.Application.Middlewares;
+using EleventhProject.Server.Application.Models.BloodType;
+using EleventhProject.Server.Application.Models.DonationHistory;
+using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Application.Models.User;
+using EleventhProject.Server.Infrastructure.Entities.BloodType;
 using EleventhProject.Server.Infrastructure.Entities.User;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.User;
 
@@ -21,15 +23,22 @@ public class UserService : IUserService
     private readonly IUserRepository _userRepository;
     private readonly ICityService _cityService;
     private readonly IMapper _mapper;
+    private readonly IJwtProvider _jwtProvider;
 
-    public UserService(IPetService petService, IDonorSearchCardService donorSearchCardService, IUserRepository userRepository,
-    IMapper mapper, ICityService cityService)
+    public UserService(
+        IPetService petService,
+        IDonorSearchCardService donorSearchCardService,
+        IUserRepository userRepository,
+        IMapper mapper,
+        ICityService cityService,
+        IJwtProvider jwtProvider)
     {
         _petService = petService;
         _donorSearchCardService = donorSearchCardService;
         _userRepository = userRepository;
         _mapper = mapper;
         _cityService = cityService;
+        _jwtProvider = jwtProvider;
     }
     
     public Task<string> GetUserById(int id)
@@ -51,7 +60,17 @@ public class UserService : IUserService
 
     public Task<string> Login(string username, string password)
     {
-        throw new NotImplementedException();
+        var entity = _userRepository.GetUser().Where(user => user.UserName == username);
+        var model = _mapper.Map<UserModel>(entity);
+
+        if (model.Password != password)
+        {
+            throw new Exception();
+        }
+
+        var token = _jwtProvider.GenerateToken(model);
+
+        return Task.FromResult(token);
     }
 
     public Task<string> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
@@ -62,8 +81,13 @@ public class UserService : IUserService
         var entity = _mapper.Map<UserEntity>(userModel);
 
         var result = _userRepository.CreateUser(entity);
+
+        var response = new
+        {
+            id = result.Id
+        };
         
-        return Task.FromResult(JsonSerializer.Serialize(result));
+        return Task.FromResult(JsonSerializer.Serialize(response));
     }
 
     public Task<string> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname,

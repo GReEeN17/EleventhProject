@@ -1,6 +1,7 @@
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using AutoMapper;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.BloodType;
 using EleventhProject.Server.Application.Breed;
@@ -114,7 +115,7 @@ public class Startup
         services.AddScoped<IPetVaccinationRepository, PetVaccinationRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IVaccinationDictRepository, VaccinationDictRepository>();
-        services.AddSingleton(new UserEntity() { Id = 0 });
+        services.AddSingleton(new UserEntity{ Id = 0 });
     }
     
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
