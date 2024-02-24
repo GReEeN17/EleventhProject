@@ -8,7 +8,7 @@ public interface IBloodTypeRepository
     IQueryable<BloodTypeModel> GetBloodType();
     IQueryable<BloodTypeModel> GetAllBloodTypes();
     
-    Task<int> CreateBloodType(BloodTypeModel bloodType);
+    Task<BloodTypeModel> CreateBloodType(BloodTypeModel bloodType);
     Task CreateRangeBloodTypes(IEnumerable<BloodTypeModel> bloodTypes);
 
     Task DeleteBloodType(int bloodTypeId);

@@ -1,12 +1,13 @@
 using EleventhProject.Server.Application.Models.PetType;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.Contracts.PetType;
 
 public interface IPetTypeService
 {
-    Task<PetTypeModel> CreatePetType(string title);
+    Task<IActionResult> CreatePetType(string title);
 
-    Task<PetTypeModel> GetPetTypeById(int petTypeId);
+    Task<IActionResult> GetPetTypeById(int petTypeId);
 
-    IAsyncEnumerable<PetTypeModel> GetAllPetTypes();
+    IAsyncEnumerable<IActionResult> GetAllPetTypes();
 }

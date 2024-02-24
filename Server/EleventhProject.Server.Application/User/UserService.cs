@@ -5,6 +5,7 @@ using EleventhProject.Server.Application.Contracts.User;
 using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Application.Models.User;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.User;
 
@@ -14,18 +15,18 @@ public class UserService : IUserService
     public IDonorSearchCardService DonorSearchCardService { get; }
     public IUserRepository UserRepository { get; }
 
-    public Task<UserModel> GetUserById(int id)
+    public Task<IActionResult> GetUserById(int id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<UserModel> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
+    public Task<IActionResult> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
         string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate)
     {
         throw new NotImplementedException();
     }
 
-    public Task<UserModel> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname,
+    public Task<IActionResult> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname,
         string name, string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate)
     {
         throw new NotImplementedException();
@@ -36,7 +37,7 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public IAsyncEnumerable<PetModel> GetAllPets(int userId)
+    public IAsyncEnumerable<IActionResult> GetAllPets(int userId)
     {
         throw new NotImplementedException();
     }
@@ -46,7 +47,7 @@ public class UserService : IUserService
         throw new NotImplementedException();
     }
 
-    public IAsyncEnumerable<DonationHistoryModel> GetDonationHistory(int userId)
+    public IAsyncEnumerable<IActionResult> GetDonationHistory(int userId)
     {
         throw new NotImplementedException();
     }

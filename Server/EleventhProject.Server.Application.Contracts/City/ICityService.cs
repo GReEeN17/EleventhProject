@@ -1,12 +1,13 @@
 using EleventhProject.Server.Application.Models.City;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.Contracts.City;
 
 public interface ICityService
 {
-    Task<CityModel> CreateCity(string title);
+    Task<IActionResult> CreateCity(string title);
 
-    Task<CityModel> GetCityById(int cityId);
+    Task<IActionResult> GetCityById(int cityId);
 
-    IAsyncEnumerable<CityModel> GetAllCities();
+    IAsyncEnumerable<IActionResult> GetAllCities();
 }

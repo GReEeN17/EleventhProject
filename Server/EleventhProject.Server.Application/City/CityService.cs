@@ -1,21 +1,22 @@
 using EleventhProject.Server.Application.Contracts.City;
 using EleventhProject.Server.Application.Models.City;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.City;
 
 public class CityService : ICityService
 {
-    public Task<CityModel> CreateCity(string title)
+    public Task<IActionResult> CreateCity(string title)
     {
         throw new NotImplementedException();
     }
 
-    public Task<CityModel> GetCityById(int cityId)
+    public Task<IActionResult> GetCityById(int cityId)
     {
         throw new NotImplementedException();
     }
 
-    public IAsyncEnumerable<CityModel> GetAllCities()
+    public IAsyncEnumerable<IActionResult> GetAllCities()
     {
         throw new NotImplementedException();
     }

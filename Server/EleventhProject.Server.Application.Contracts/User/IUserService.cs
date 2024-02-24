@@ -6,6 +6,7 @@ using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Application.Models.PetType;
 using EleventhProject.Server.Application.Models.User;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.Contracts.User;
 
@@ -15,20 +16,20 @@ public interface IUserService
     IDonorSearchCardService DonorSearchCardService { get; }
     IUserRepository UserRepository { get; }
 
-    Task<UserModel> GetUserById(int id);
+    Task<IActionResult> GetUserById(int id);
 
-    Task<UserModel> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
+    Task<IActionResult> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
         string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate);
     
-    Task<UserModel> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname, string name,
+    Task<IActionResult> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname, string name,
         string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate);
 
     Task CreatePet(int userId, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
 
-    IAsyncEnumerable<PetModel> GetAllPets(int userId);
+    IAsyncEnumerable<IActionResult> GetAllPets(int userId);
 
     Task CreateDonorSearchCard(int userId, int clinicId, string reason, int BloodAmount, DateTime EndDate,
         bool IsUrgent);
 
-    IAsyncEnumerable<DonationHistoryModel> GetDonationHistory(int userId);
+    IAsyncEnumerable<IActionResult> GetDonationHistory(int userId);
 }
