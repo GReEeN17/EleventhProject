@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import {
     FieldErrors,
     FieldValues,
@@ -52,4 +51,5 @@ const Input: React.FC<InputProps> = ({
         </div>
     )
 }
-exports.default = Input;
+
+export default Input;
