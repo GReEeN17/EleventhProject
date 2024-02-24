@@ -5,6 +5,7 @@ using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Application.Models.PetType;
 using EleventhProject.Server.Application.Models.User;
 using EleventhProject.Server.Infrastructure.Entities.Pet;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -18,56 +19,59 @@ public class PetRepository : IPetRepository
     }
     public IQueryable<PetEntity> GetPet(int petId)
     {
-        throw new NotImplementedException();
+        return _context.Set<PetEntity>().Where(x => x.Id == petId).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<PetEntity> GetPet()
     {
-        throw new NotImplementedException();
+        return _context.Set<PetEntity>().Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<PetEntity> GetAllPets()
     {
-        throw new NotImplementedException();
+        return _context.Set<PetEntity>().AsQueryable();
     }
 
-    public Task<PetEntity> CreatePet(PetModel pet)
+    public async Task<PetEntity> CreatePet(PetEntity pet)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<PetEntity>().AddAsync(pet);
+        return entitiy.Entity;
     }
 
-    public Task CreateRangePets(IEnumerable<PetModel> pets)
+    public async Task CreateRangePets(IEnumerable<PetEntity> pets)
     {
-        throw new NotImplementedException();
+        await _context.Set<PetEntity>().AddRangeAsync(pets);
     }
 
-    public Task DeletePet(int petId)
+    public async Task DeletePet(int petId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<PetEntity>().FirstOrDefaultAsync(x => x.Id == petId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task RemovePet(PetModel pet)
+    public async Task RemovePet(PetEntity pet)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<PetEntity>().Remove(pet));
     }
 
-    public Task RemoveRangePets(IEnumerable<PetModel> pets)
+    public async Task RemoveRangePets(IEnumerable<PetEntity> pets)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<PetEntity>().RemoveRange(pets));
     }
 
-    public Task UpdatePet(PetModel pet)
+    public async Task UpdatePet(PetEntity pet)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<PetEntity>().Update(pet));
     }
 
-    public Task UpdateRangePets(IEnumerable<PetModel> pets)
+    public async Task UpdateRangePets(IEnumerable<PetEntity> pets)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<PetEntity>().UpdateRange(pets));
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }

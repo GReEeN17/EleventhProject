@@ -1,6 +1,7 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.Clinic;
 using EleventhProject.Server.Infrastructure.Entities.Clinic;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -12,63 +13,67 @@ public class ClinicRepository : IClinicRepository
     {
         _context = context;
     }
-    public IQueryable<ClinicEntity> GetClinic(int breedId)
+    public IQueryable<ClinicEntity> GetClinic(int clinicId)
     {
-        throw new NotImplementedException();
+        return _context.Set<ClinicEntity>().Where(x => x.Id == clinicId).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<ClinicEntity> GetClinic()
     {
-        throw new NotImplementedException();
+        return _context.Set<ClinicEntity>().Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<ClinicEntity> GetAllClinics()
     {
-        throw new NotImplementedException();
+        return _context.Set<ClinicEntity>().AsQueryable();
+
     }
 
     public IQueryable<ClinicEntity> GetAllClinics(int cityId)
     {
-        throw new NotImplementedException();
+        return _context.Set<ClinicEntity>().Where(x => x.City.Id == cityId).Where(x => x.IsActive).AsQueryable();
     }
 
-    public Task<ClinicEntity> CreateClinic(ClinicModel clinic)
+    public async Task<ClinicEntity> CreateClinic(ClinicEntity clinic)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<ClinicEntity>().AddAsync(clinic);
+        return entitiy.Entity;
     }
 
-    public Task CreateRangeClinics(IEnumerable<ClinicModel> clinics)
+    public async Task CreateRangeClinics(IEnumerable<ClinicEntity> clinics)
     {
-        throw new NotImplementedException();
+        await _context.Set<ClinicEntity>().AddRangeAsync(clinics);
     }
 
-    public Task DeleteClinic(int clinicId)
+    public async Task DeleteClinic(int clinicId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<ClinicEntity>().FirstOrDefaultAsync(x => x.Id == clinicId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task RemoveClinic(ClinicModel clinic)
+    public async Task RemoveClinic(ClinicEntity clinic)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<ClinicEntity>().Remove(clinic));
     }
 
-    public Task RemoveRangeClinics(IEnumerable<ClinicModel> clinics)
+    public async Task RemoveRangeClinics(IEnumerable<ClinicEntity> clinics)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<ClinicEntity>().RemoveRange(clinics));
     }
 
-    public Task UpdateClinic(ClinicModel clinic)
+    public async Task UpdateClinic(ClinicEntity clinic)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<ClinicEntity>().Update(clinic));
     }
 
-    public Task UpdateRangeClinics(IEnumerable<ClinicModel> clinics)
+    public async Task UpdateRangeClinics(IEnumerable<ClinicEntity> clinics)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<ClinicEntity>().UpdateRange(clinics));
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }
