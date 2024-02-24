@@ -14,4 +14,9 @@ public class VaccinationDictService : IVaccinationDictService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<VaccinationDictModel> GetAllVaccinations()
+    {
+        throw new NotImplementedException();
+    }
 }

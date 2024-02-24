@@ -14,4 +14,9 @@ public class CityService : ICityService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<CityModel> GetAllCities()
+    {
+        throw new NotImplementedException();
+    }
 }

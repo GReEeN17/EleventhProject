@@ -7,4 +7,6 @@ public interface IPetVaccinationService
     PetVaccinationModel CreatePetVaccination(int vaccinationId, int petId);
 
     PetVaccinationModel GetPetVaccinationById(int petVaccinationId);
+
+    IEnumerable<PetVaccinationModel> GetAllPetVaccinations();
 }

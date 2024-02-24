@@ -7,4 +7,6 @@ public interface IBreedService
     BreedModel CreateBreed(string title);
 
     BreedModel GetBreedById(int breedId);
+
+    IEnumerable<BreedModel> GetAllBreeds();
 }

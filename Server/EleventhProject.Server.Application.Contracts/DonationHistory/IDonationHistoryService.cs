@@ -8,4 +8,6 @@ public interface IDonationHistoryService
     DonationHistoryModel CreateDonationHistory(PetModel recipient, PetModel donor, DateTime date);
 
     DonationHistoryModel GetDonationHistoryById(int donationHistoryId);
+
+    IEnumerable<DonationHistoryModel> GetAllDonationHistory();
 }

@@ -14,4 +14,9 @@ public class BloodTypeService : IBloodTypeService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<BloodTypeModel> GetAllBloodTypes()
+    {
+        throw new NotImplementedException();
+    }
 }

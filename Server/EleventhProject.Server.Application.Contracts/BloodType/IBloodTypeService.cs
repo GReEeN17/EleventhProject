@@ -7,4 +7,6 @@ public interface IBloodTypeService
     BloodTypeModel CreateBloodType(string title);
 
     BloodTypeModel GetBloodTypeById(int bloodTypeId);
+
+    IEnumerable<BloodTypeModel> GetAllBloodTypes();
 }

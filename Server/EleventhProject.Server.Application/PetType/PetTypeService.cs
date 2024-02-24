@@ -14,4 +14,9 @@ public class PetTypeService : IPetTypeService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<PetTypeModel> GetAllPetTypes()
+    {
+        throw new NotImplementedException();
+    }
 }

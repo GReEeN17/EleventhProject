@@ -7,4 +7,6 @@ public interface IPetTypeService
     PetTypeModel CreatePetType(string title);
 
     PetTypeModel GetPetTypeById(int petTypeId);
+
+    IEnumerable<PetTypeModel> GetAllPetTypes();
 }

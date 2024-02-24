@@ -15,4 +15,9 @@ public class DonationHistoryService : IDonationHistoryService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<DonationHistoryModel> GetAllDonationHistory()
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -8,4 +8,6 @@ public interface IClinicService
     ClinicModel CreateClinic(CityModel city, string Title, string Address);
 
     ClinicModel GetClinicById(int clinicId);
+
+    IEnumerable<ClinicModel> GetAllClinics();
 }

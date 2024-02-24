@@ -7,4 +7,6 @@ public interface ICityService
     CityModel CreateCity(string title);
 
     CityModel GetCityById(int cityId);
+
+    IEnumerable<CityModel> GetAllCities();
 }

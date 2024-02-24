@@ -14,4 +14,9 @@ public class PetVaccinationService : IPetVaccinationService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<PetVaccinationModel> GetAllPetVaccinations()
+    {
+        throw new NotImplementedException();
+    }
 }

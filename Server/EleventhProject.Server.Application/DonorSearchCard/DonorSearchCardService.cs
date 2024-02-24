@@ -17,4 +17,9 @@ public class DonorSearchCardService : IDonorSearchCardService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<DonorSearchCardModel> GetDonorSearchCardsByCity(int cityId)
+    {
+        throw new NotImplementedException();
+    }
 }
