@@ -9,11 +9,11 @@ namespace EleventhProject.Server.Application.Contracts.Pet;
 
 public interface IPetService
 {
-    Task<IActionResult> CreatePet(UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
+    Task<PetModel> CreatePet(UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
 
-    Task<IActionResult> GetPetById(int petId);
+    Task<PetModel> GetPetById(int petId);
 
-    Task<IActionResult> UpdatePet(int petId, UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
+    Task<PetModel> UpdatePet(int petId, UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
 
-    IAsyncEnumerable<IActionResult> GetAllPetsByUserId(int userId);
+    IAsyncEnumerable<PetModel> GetAllPetsByUserId(int userId);
 }

@@ -15,17 +15,17 @@ public class BloodTypeService : IBloodTypeService
 {
     private readonly IBloodTypeRepository _bloodTypeRepository;
     private readonly IMapper _mapper;
-    public Task<string> CreateBloodType(string title)
+    public Task<BloodTypeModel> CreateBloodType(string title)
     {
         throw new NotImplementedException();
     }
 
-    public Task<string> GetBloodTypeById(int bloodTypeId)
+    public Task<BloodTypeModel> GetBloodTypeById(int bloodTypeId)
     {
         throw new NotImplementedException();
     }
 
-    public string GetAllBloodTypes()
+    public IAsyncEnumerable<BloodTypeModel> GetAllBloodTypes()
     {
         throw new NotImplementedException();
     }

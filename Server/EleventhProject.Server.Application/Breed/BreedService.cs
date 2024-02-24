@@ -9,17 +9,17 @@ namespace EleventhProject.Server.Application.Breed;
 
 public class BreedService : IBreedService
 {
-    public Task<IActionResult> CreateBreed(string title)
+    public Task<BreedModel> CreateBreed(string title)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IActionResult> GetBreedById(int breedId)
+    public Task<BreedModel> GetBreedById(int breedId)
     {
         throw new NotImplementedException();
     }
 
-    public IAsyncEnumerable<IActionResult> GetAllBreeds()
+    public IAsyncEnumerable<BreedModel> GetAllBreeds()
     {
         throw new NotImplementedException();
     }

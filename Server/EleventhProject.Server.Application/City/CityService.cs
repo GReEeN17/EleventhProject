@@ -23,7 +23,7 @@ public class CityService : ICityService
         _mapper = mapper;
     }
 
-    public Task<string> CreateCity(string title)
+    public Task<CityModel> CreateCity(string title)
     {
         var entity = _mapper.Map<CityEntity>(new CityModel(title));
         var result = _cityRepository.CreateCity(entity);
@@ -39,7 +39,7 @@ public class CityService : ICityService
         return Task.FromResult(cityModel);
     }
 
-    public string GetAllCities()
+    public IAsyncEnumerable<CityModel> GetAllCities()
     {
         throw new NotImplementedException();
     }

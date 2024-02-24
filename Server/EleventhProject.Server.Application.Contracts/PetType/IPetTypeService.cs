@@ -5,9 +5,9 @@ namespace EleventhProject.Server.Application.Contracts.PetType;
 
 public interface IPetTypeService
 {
-    Task<IActionResult> CreatePetType(string title);
+    Task<PetTypeModel> CreatePetType(string title);
 
-    Task<IActionResult> GetPetTypeById(int petTypeId);
+    Task<PetTypeModel> GetPetTypeById(int petTypeId);
 
-    IAsyncEnumerable<IActionResult> GetAllPetTypes();
+    IAsyncEnumerable<PetTypeModel> GetAllPetTypes();
 }

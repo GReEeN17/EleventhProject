@@ -6,9 +6,9 @@ namespace EleventhProject.Server.Application.Contracts.Clinic;
 
 public interface IClinicService
 {
-    Task<IActionResult> CreateClinic(CityModel city, string Title, string Address);
+    Task<ClinicModel> CreateClinic(CityModel city, string Title, string Address);
 
-    Task<IActionResult> GetClinicById(int clinicId);
+    Task<ClinicModel> GetClinicById(int clinicId);
 
-    IAsyncEnumerable<IActionResult> GetAllClinics(int? cityId);
+    IAsyncEnumerable<ClinicModel> GetAllClinics(int? cityId);
 }
