@@ -1,6 +1,7 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.Breed;
 using EleventhProject.Server.Infrastructure.Entities.Breed;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -14,52 +15,55 @@ public class BreedRepository : IBreedRepository
     }
     public IQueryable<BreedEntity> GetBreed(int breedId)
     {
-        throw new NotImplementedException();
+        return _context.Set<BreedEntity>().Where(x => x.Id == breedId).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<BreedEntity> GetBreed()
     {
-        throw new NotImplementedException();
+        return _context.Set<BreedEntity>().Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<BreedEntity> GetAllBreeds()
     {
-        throw new NotImplementedException();
+        return _context.Set<BreedEntity>().AsQueryable();
     }
 
-    public Task<BreedEntity> CreateBreed(BreedModel breed)
+    public async Task<BreedEntity> CreateBreed(BreedEntity breed)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<BreedEntity>().AddAsync(breed);
+        return entitiy.Entity;
     }
 
-    public Task CreateRangeBreeds(IEnumerable<BreedModel> breeds)
+    public async Task CreateRangeBreeds(IEnumerable<BreedEntity> breeds)
     {
-        throw new NotImplementedException();
+        await _context.Set<BreedEntity>().AddRangeAsync(breeds);
     }
 
-    public Task DeleteBreed(int breedId)
+    public async Task DeleteBreed(int breedId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<BreedEntity>().FirstOrDefaultAsync(x => x.Id == breedId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task RemoveBreed(BreedModel breed)
+    public async Task RemoveBreed(BreedEntity breed)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<BreedEntity>().Remove(breed));
     }
 
-    public Task RemoveRangeBreeds(IEnumerable<BreedModel> breeds)
+    public async Task RemoveRangeBreeds(IEnumerable<BreedEntity> breeds)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<BreedEntity>().RemoveRange(breeds));
     }
 
-    public Task UpdateBreed(BreedModel breed)
+    public async Task UpdateBreed(BreedEntity breed)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<BreedEntity>().Update(breed));
     }
 
-    public Task UpdateRangeBreeds(IEnumerable<BreedModel> breeds)
+    public async Task UpdateRangeBreeds(IEnumerable<BreedEntity> breeds)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<BreedEntity>().UpdateRange(breeds));
     }
 
     public Task<int> SaveChangesAsync()

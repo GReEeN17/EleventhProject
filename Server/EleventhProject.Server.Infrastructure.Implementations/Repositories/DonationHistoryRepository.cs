@@ -2,6 +2,7 @@ using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Infrastructure.Entities.DonationHistory;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -13,58 +14,63 @@ public class DonationHistoryRepository : IDonationHistoryRepository
     {
         _context = context;
     }
+
     public IQueryable<DonationHistoryEntity> GetDonationHistory(int donationHistoryId)
     {
-        throw new NotImplementedException();
+        return _context.Set<DonationHistoryEntity>().Where(x => x.Id == donationHistoryId).Where(x => x.IsActive)
+            .AsQueryable();
     }
 
     public IQueryable<DonationHistoryEntity> GetDonationHistory()
     {
-        throw new NotImplementedException();
+        return _context.Set<DonationHistoryEntity>().Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<DonationHistoryEntity> GetAllDonationHistories()
     {
-        throw new NotImplementedException();
+        return _context.Set<DonationHistoryEntity>().AsQueryable();
     }
 
-    public Task<DonationHistoryEntity> CreateDonationHistory(DonationHistoryModel donationHistory)
+    public async Task<DonationHistoryEntity> CreateDonationHistory(DonationHistoryEntity donationHistory)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<DonationHistoryEntity>().AddAsync(donationHistory);
+        return entitiy.Entity;
     }
 
-    public Task CreateRangeDonationHistories(IEnumerable<DonationHistoryModel> donationHistories)
+    public async Task CreateRangeDonationHistories(IEnumerable<DonationHistoryEntity> donationHistories)
     {
-        throw new NotImplementedException();
+        await _context.Set<DonationHistoryEntity>().AddRangeAsync(donationHistories);
     }
 
-    public Task DeleteDonationHistory(int donationHistoryId)
+    public async Task DeleteDonationHistory(int donationHistoryId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<DonationHistoryEntity>().FirstOrDefaultAsync(x => x.Id == donationHistoryId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task RemoveDonationHistory(DonationHistoryModel donationHistory)
+    public async Task RemoveDonationHistory(DonationHistoryEntity donationHistory)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<DonationHistoryEntity>().Remove(donationHistory));
     }
 
-    public Task RemoveRangeDonationHistories(IEnumerable<DonationHistoryModel> donationHistories)
+    public async Task RemoveRangeDonationHistories(IEnumerable<DonationHistoryEntity> donationHistories)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<DonationHistoryEntity>().RemoveRange(donationHistories));
     }
 
-    public Task UpdateDonationHistory(DonationHistoryModel donationHistory)
+    public async Task UpdateDonationHistory(DonationHistoryEntity donationHistory)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<DonationHistoryEntity>().Update(donationHistory));
     }
 
-    public Task UpdateRangeDonationHistories(IEnumerable<DonationHistoryModel> donationHistories)
+    public async Task UpdateRangeDonationHistories(IEnumerable<DonationHistoryEntity> donationHistories)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<DonationHistoryEntity>().UpdateRange(donationHistories));
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }

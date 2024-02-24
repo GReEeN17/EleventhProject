@@ -1,6 +1,7 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.City;
 using EleventhProject.Server.Infrastructure.Entities.City;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -14,52 +15,56 @@ public class CityRepository : ICityRepository
     }
     public IQueryable<CityEntity> GetCity(int cityId)
     {
-        throw new NotImplementedException();
+        return _context.Set<CityEntity>().Where(x => x.Id == cityId).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<CityEntity> GetCity()
     {
-        throw new NotImplementedException();
+        return _context.Set<CityEntity>().Where(x => x.IsActive).AsQueryable();
+
     }
 
     public IQueryable<CityEntity> GetAllCities()
     {
-        throw new NotImplementedException();
+        return _context.Set<CityEntity>().AsQueryable();
     }
 
-    public Task<CityEntity> CreateCity(CityModel city)
+    public async Task<CityEntity> CreateCity(CityEntity city)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<CityEntity>().AddAsync(city);
+        return entitiy.Entity;
     }
 
-    public Task CreateRangeCities(IEnumerable<CityModel> cities)
+    public async Task CreateRangeCities(IEnumerable<CityEntity> cities)
     {
-        throw new NotImplementedException();
+        await _context.Set<CityEntity>().AddRangeAsync(cities);
     }
 
-    public Task DeleteCity(int cityId)
+    public async Task DeleteCity(int cityId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<CityEntity>().FirstOrDefaultAsync(x => x.Id == cityId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task RemoveBreed(CityModel city)
+    public async Task RemoveCity(CityEntity city)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<CityEntity>().Remove(city));
     }
 
-    public Task RemoveRangeBreeds(IEnumerable<CityModel> cities)
+    public async Task RemoveRangeCities(IEnumerable<CityEntity> cities)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<CityEntity>().RemoveRange(cities));
     }
 
-    public Task UpdateBreed(CityModel city)
+    public async Task UpdateCity(CityEntity city)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<CityEntity>().Update(city));
     }
 
-    public Task UpdateRangeBreeds(IEnumerable<CityModel> cities)
+    public async Task UpdateRangeCities(IEnumerable<CityEntity> cities)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<CityEntity>().UpdateRange(cities));
     }
 
     public Task<int> SaveChangesAsync()

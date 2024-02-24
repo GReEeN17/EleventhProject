@@ -5,7 +5,7 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IClinicRepository
 {
-    IQueryable<ClinicEntity> GetClinic(int breedId);
+    IQueryable<ClinicEntity> GetClinic(int clinicId);
     IQueryable<ClinicEntity> GetClinic();
     IQueryable<ClinicEntity> GetAllClinics();
     IQueryable<ClinicEntity> GetAllClinics(int cityId);
