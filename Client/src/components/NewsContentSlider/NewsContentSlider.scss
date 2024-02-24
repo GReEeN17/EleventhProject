@@ -3,7 +3,7 @@
 
 .SliderItem {
     border-radius: 19px;
-    background: #be5865;
+    background: #666;
     display: inline-flex;
     flex-direction: column;
     height: 346px;
@@ -47,24 +47,33 @@
     font-size: 16px;
     width: 20.5625rem;
     font-weight: bold;
-    margin-bottom: 1.0rem;
+    margin-bottom: 0.5rem;
     padding-left: 20px;
 }
 
 .SliderItemOwner p {
     font-size: 14px;
-    color: #666;
+    color: #101010;
     width: 20.5625rem;
-    margin-bottom: 0.0rem;
-    margin-top: 10px;
+    margin-top: 5px;
     padding-left: 20px;
+}
+
+.SliderUsername p {
+    font-size: 20px;
+    width: 70%;
+}
+
+.SliderUsername {
+    display: flex;
+    flex-direction: row;
 }
 
 .SliderItemAddress {
     padding-bottom: 1.0rem;
     display: flex;
     flex-direction: row;
-    margin-top: 20px;
+    margin-top: 2px;
 }
 
 .SliderItemAddress p {
@@ -77,18 +86,15 @@
 
 .SliderItemBloodType {
     background-color: white;
-    color: black;
     display: flex;
-    width: 20%;
+    color: black;
     text-align: center;
     margin-left: 20px;
     border-radius: 5px;
     margin-bottom: 20px;
-}
-
-.SliderItemBloodType p {
-    padding-left: 0;
-    margin-bottom: 0;
+    white-space: nowrap;
+    height: 30px;
+    padding: 0 10px 0 10px;
 }
 
 .SliderItemImg {
@@ -106,7 +112,7 @@
 
 .SliderItemDate {
     font-size: 16px;
-    color: #666;
+    color: #0C0C0C;
     padding-top: 20px;
     padding-left: 40px;
     text-align: right;
@@ -127,7 +133,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .InTheNewsText {

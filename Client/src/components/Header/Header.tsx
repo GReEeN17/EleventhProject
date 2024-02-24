@@ -58,12 +58,12 @@ const Header = observer(() => {
                         <div className={dropsStore.isProfileActive ? 'dropdown active' : 'dropdown'}>
                             <Link className='dropitem' href="/"  onClick={() => dropsStore.setIsProfileActive(false)}>Profile</Link>
                             <Link className='dropitem' href="/settings" onClick={() => dropsStore.setIsProfileActive(false)}>Settings</Link>
-                            <button className='dropitem' onClick={logout}>Log Out</button>
+                            <button className='dropitem' onClick={logout}>Выйти</button>
                         </div>
                     </div>
                 ) : (
                     <div className="auth">
-                        <button className="Signin" onClick={() => modalAuthStore.setIsActive(true)}>Sign in</button>
+                        <button className="Signin" onClick={() => modalAuthStore.setIsActive(true)}>Войти</button>
                     </div>
                 )}
             </nav>

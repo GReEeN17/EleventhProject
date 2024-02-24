@@ -6,11 +6,11 @@ export default function Newsletter() {
     <div className="Newsletter">
       <div className="Mailing">
         <div className="MailingText1">
-          <p>STAY UP TO DATE</p>
+          <p>Будьте в курсе последних событий</p>
           <Socials />
         </div>
         <div className="MailingText2">
-          <p>Get our newsletter</p>
+          <p>Подпишитесь на рассылку</p>
         </div>
         <div className="MailingInput">
           <div className="EmailField">

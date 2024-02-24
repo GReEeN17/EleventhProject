@@ -8,17 +8,17 @@ export default function Newsletter() {
     const orders = [
         {
             id: "1",
-            name: 'Хвостенко Марк',
+            name: 'Бобик',
             blood_type: 'O(I) Rh-',
             date_end: 'До 26 февраля',
-            address: 'Санкт-Петербург, Кронверкский пр-т 49, жопа',
+            address: 'Санкт-Петербург, Кронверкский пр-т 49,',
             owner: 'Зелень Александр',
             required: '4',
             current: '1'
         },
         {
             id: "2",
-            name: 'Иванов Иван',
+            name: 'Зайчик',
             blood_type: 'A(II) Rh+',
             date_end: 'До 27 февраля',
             address: 'Москва, Тверская ул. 12, квартира 12',
@@ -28,7 +28,7 @@ export default function Newsletter() {
         },
         {
             id: "3",
-            name: 'Сидоров Сергей',
+            name: 'Сидоджи',
             blood_type: 'B(III) Rh-',
             date_end: 'До 28 февраля',
             address: 'Новосибирск, Красный пр-т 100, квартира 200',
@@ -38,7 +38,7 @@ export default function Newsletter() {
         },
         {
             id: "4",
-            name: 'Кузнецов Кирилл',
+            name: 'Корнелиус',
             blood_type: 'AB(IV) Rh+',
             date_end: 'До 29 февраля',
             address: 'Екатеринбург, Ленина ул. 30, квартира 30',
@@ -48,7 +48,7 @@ export default function Newsletter() {
         },
         {
             id: "5",
-            name: 'Смирнов Александр',
+            name: 'Бублик',
             blood_type: 'O(I) Rh-',
             date_end: 'До 30 февраля',
             address: 'Санкт-Петербург, Невский пр-т 1, квартира 1',
@@ -102,12 +102,13 @@ export default function Newsletter() {
                 <div className="SliderItemDate">
                     <p>{item.date_end}</p>
                 </div>
-                <div>
+                <div className="SliderUsername">
                     <p>{item.name}</p>
+                    <div className="SliderItemBloodType">
+                        {item.blood_type}
+                    </div>
                 </div>
-                <div className="SliderItemBloodType">
-                    <p>{item.blood_type}</p>
-                </div>
+
                 <div className="SliderItemAddress">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
