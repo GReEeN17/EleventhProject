@@ -9,7 +9,13 @@ public class PetService : IPetService
 {
     public Task<IActionResult> CreatePet(UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight)
     {
-        throw new NotImplementedException();
+        var cityModel = _cityService.GetCityById(cityId).Result;
+        var userModel = new UserModel(cityModel, username, password, phoneNumber, surname, name, middleName);
+        var entity = _mapper.Map<UserEntity>(userModel);
+
+        var result = _userRepository.CreateUser(entity);
+        
+        return Task.FromResult(JsonSerializer.Serialize(result));
     }
 
     public Task<IActionResult> GetPetById(int petId)
@@ -23,8 +29,8 @@ public class PetService : IPetService
         throw new NotImplementedException();
     }
 
-    public IAsyncEnumerable<IActionResult> GetAllPetsByUserId(int userId)
+    public Task<string> GetAllPetsByUserId(int userId)
     {
-        throw new NotImplementedException();
+        
     }
 }
