@@ -4,7 +4,4 @@ namespace EleventhProject.Server.Presentation.Controllers;
 
 [ApiController]
 [Route("api")]
-public abstract class BaseController : Controller
-{
-    
-}
+public abstract class BaseController : Controller;

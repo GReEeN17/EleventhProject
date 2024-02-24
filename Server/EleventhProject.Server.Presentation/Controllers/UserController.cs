@@ -1,3 +1,4 @@
+using System.Text.Json;
 using EleventhProject.Server.Application.Contracts.User;
 using EleventhProject.Server.Presentation.EntityRequests;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -13,31 +14,52 @@ public class UserController(IUserService userService) : BaseController
         try
         {
             var user = await userService.GetUserById(userId);
+            
             if (user == null)
             {
                 return NotFound();
             }
-
-            return Ok(user);
+            
+            var response = new
+            {
+                city = user.City.Title,
+                phoneNumber = user.PhoneNumber,
+                surname = user.Surname,
+                name = user.Name,
+                notReadyForDonation = user.NotReadyForDonation
+            };
+            
+            return Ok(JsonSerializer.Serialize(response));
         }
         catch (Exception ex)
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
     }
-    
+
     [HttpPost("user/createUser")]
     public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
     {
         try
         {
-            var user = await userService.CreateUser(request.CityId, request.Username, request.Password, request.PhoneNumber, request.Surname, request.Name, request.MiddleName);
+            var user = await userService.CreateUser(request.CityId, request.Username, request.Password,
+                request.PhoneNumber, request.Surname, request.Name, request.MiddleName);
+            
             if (user == null)
             {
                 return NotFound();
             }
 
-            return Ok(user);
+            var response = new
+            {
+                city = user.City.Title,
+                phoneNumber = user.PhoneNumber,
+                surname = user.Surname,
+                name = user.Name,
+                notReadyForDonation = user.NotReadyForDonation
+            };
+            
+            return Ok(JsonSerializer.Serialize(response));
         }
         catch (Exception ex)
         {
