@@ -4,5 +4,5 @@ namespace EleventhProject.Server.Application.Models.City;
 
 public class CityModel : Model
 {
-    private string Title { get; set; }
+    public string Title { get; set; }
 }

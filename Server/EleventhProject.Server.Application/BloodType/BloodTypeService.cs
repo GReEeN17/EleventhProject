@@ -1,6 +1,9 @@
+using System.Text.Json;
+using AutoMapper;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Contracts.BloodType;
 using EleventhProject.Server.Application.Models.BloodType;
+using EleventhProject.Server.Infrastructure.Entities.BloodType;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.BloodType;
@@ -8,14 +11,24 @@ namespace EleventhProject.Server.Application.BloodType;
 public class BloodTypeService : IBloodTypeService
 {
     private readonly IBloodTypeRepository _bloodTypeRepository;
-    public Task<IActionResult> CreateBloodType(string title)
+    private readonly IMapper _mapper;
+    public Task<string> CreateBloodType(string title)
     {
-        throw new NotImplementedException();
+        var entity = _mapper.Map<BloodTypeEntity>(new BloodTypeModel(title));
+        var result = _bloodTypeRepository.CreateBloodType(entity);
     }
 
-    public Task<IActionResult> GetBloodTypeById(int bloodTypeId)
+    public Task<string> GetBloodTypeById(int bloodTypeId)
     {
-        throw new NotImplementedException();
+        var entity = _bloodTypeRepository.GetBloodType(bloodTypeId);
+        var bloodTypeModel = _mapper.Map<BloodTypeModel>(entity);
+
+        var response = new
+        {
+            title = bloodTypeModel.Title
+        };
+        
+        return Task.FromResult((JsonSerializer.Serialize(response)));
     }
 
     public IAsyncEnumerable<IActionResult> GetAllBloodTypes()
