@@ -15,6 +15,7 @@ public class UserModel : Model
         Name = name;
         MiddleName = middleName;
     }
+    public int Id { get; set; }
     public CityModel City { get; set; }
     public string UserName { get; set; }
     public string Password { get; set; }
