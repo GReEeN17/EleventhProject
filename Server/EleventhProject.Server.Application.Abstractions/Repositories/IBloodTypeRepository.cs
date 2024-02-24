@@ -14,10 +14,10 @@ public interface IBloodTypeRepository
 
     Task DeleteBloodType(int bloodTypeId);
 
-    Task RemoveBloodType(BloodTypeModel bloodType);
+    Task RemoveBloodType(BloodTypeEntity bloodType);
     Task RemoveRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes);
 
-    Task UpdateBloodType(BloodTypeModel bloodType);
+    Task UpdateBloodType(BloodTypeEntity bloodType);
     Task UpdateRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes);
     
     Task<int> SaveChangesAsync();

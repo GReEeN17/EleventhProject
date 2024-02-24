@@ -14,10 +14,10 @@ public interface ICityRepository
 
     Task DeleteCity(int cityId);
 
-    Task RemoveBreed(CityModel city);
+    Task RemoveBreed(CityEntity city);
     Task RemoveRangeBreeds(IEnumerable<CityEntity> cities);
 
-    Task UpdateBreed(CityModel city);
+    Task UpdateBreed(CityEntity city);
     Task UpdateRangeBreeds(IEnumerable<CityEntity> cities);
     
     Task<int> SaveChangesAsync();
