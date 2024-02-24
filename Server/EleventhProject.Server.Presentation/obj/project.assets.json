@@ -3195,7 +3195,9 @@
         "dependencies": {
           "AutoMapper": "13.0.1",
           "EleventhProject.Server.Application.Abstractions": "1.0.0",
-          "EleventhProject.Server.Application.Contracts": "1.0.0"
+          "EleventhProject.Server.Application.Contracts": "1.0.0",
+          "EleventhProject.Server.Application.Models": "1.0.0",
+          "EleventhProject.Server.Infrastructure.Entities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/EleventhProject.Server.Application.dll": {}
@@ -3224,6 +3226,7 @@
         "dependencies": {
           "EleventhProject.Server.Application.Abstractions": "1.0.0",
           "EleventhProject.Server.Application.Models": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "compile": {
@@ -9545,9 +9548,9 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
-      "AutoMapper >= 13.0.1",
       "EleventhProject.Server.Application >= 1.0.0",
       "EleventhProject.Server.Application.Contracts >= 1.0.0",
+      "EleventhProject.Server.Application.Models >= 1.0.0",
       "EleventhProject.Server.Infrastructure.Implementations >= 1.0.0",
       "EleventhProject.Server.Infrastructure.Migrations >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.2",
@@ -9564,19 +9567,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/azelen/.nuget/packages/": {}
+    "/Users/markhvostenko/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Presentation/EleventhProject.Server.Presentation.csproj",
+      "projectUniqueName": "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Presentation/EleventhProject.Server.Presentation.csproj",
       "projectName": "EleventhProject.Server.Presentation",
-      "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Presentation/EleventhProject.Server.Presentation.csproj",
-      "packagesPath": "/Users/azelen/.nuget/packages/",
-      "outputPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Presentation/obj/",
+      "projectPath": "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Presentation/EleventhProject.Server.Presentation.csproj",
+      "packagesPath": "/Users/markhvostenko/.nuget/packages/",
+      "outputPath": "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Presentation/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/azelen/.nuget/NuGet/NuGet.Config"
+        "/Users/markhvostenko/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -9588,17 +9591,20 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj": {
-              "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj"
+            "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj": {
+              "projectPath": "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj"
             },
-            "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application/EleventhProject.Server.Application.csproj": {
-              "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application/EleventhProject.Server.Application.csproj"
+            "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj": {
+              "projectPath": "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj"
             },
-            "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Implementations/EleventhProject.Server.Infrastructure.Implementations.csproj": {
-              "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Implementations/EleventhProject.Server.Infrastructure.Implementations.csproj"
+            "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Application/EleventhProject.Server.Application.csproj": {
+              "projectPath": "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Application/EleventhProject.Server.Application.csproj"
             },
-            "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Migrations/EleventhProject.Server.Infrastructure.Migrations.csproj": {
-              "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Migrations/EleventhProject.Server.Infrastructure.Migrations.csproj"
+            "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Implementations/EleventhProject.Server.Infrastructure.Implementations.csproj": {
+              "projectPath": "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Implementations/EleventhProject.Server.Infrastructure.Implementations.csproj"
+            },
+            "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Migrations/EleventhProject.Server.Infrastructure.Migrations.csproj": {
+              "projectPath": "/Users/markhvostenko/RiderProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Migrations/EleventhProject.Server.Infrastructure.Migrations.csproj"
             }
           }
         }
@@ -9607,21 +9613,12 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
-          "AutoMapper": {
-            "target": "Package",
-            "version": "[13.0.1, )"
-          },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
             "version": "[8.0.2, )"

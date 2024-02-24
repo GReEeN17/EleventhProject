@@ -9,7 +9,11 @@
     <ItemGroup>
       <ProjectReference Include="..\EleventhProject.Server.Application.Abstractions\EleventhProject.Server.Application.Abstractions.csproj" />
       <ProjectReference Include="..\EleventhProject.Server.Application.Contracts\EleventhProject.Server.Application.Contracts.csproj" />
+      <ProjectReference Include="..\EleventhProject.Server.Application.Models\EleventhProject.Server.Application.Models.csproj" />
+      <ProjectReference Include="..\EleventhProject.Server.Infrastructure.Entities\EleventhProject.Server.Infrastructure.Entities.csproj" />
     </ItemGroup>
+
+
 
     <ItemGroup>
       <PackageReference Include="AutoMapper" Version="13.0.1" />

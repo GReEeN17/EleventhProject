@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using EleventhProject.Server.Application.Contracts.PetType;
 using EleventhProject.Server.Application.Models.PetType;
 using Microsoft.AspNetCore.Mvc;

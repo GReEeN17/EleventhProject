@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using EleventhProject.Server.Application.Contracts.Pet;
 using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Application.Models.User;

@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using EleventhProject.Server.Application.Contracts.Breed;
 using EleventhProject.Server.Application.Models.Breed;
 using Microsoft.AspNetCore.Mvc;

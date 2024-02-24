@@ -1,17 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using AutoMapper;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Contracts.City;
 using EleventhProject.Server.Application.Contracts.DonorSearchCard;
 using EleventhProject.Server.Application.Contracts.Pet;
 using EleventhProject.Server.Application.Contracts.User;
-using EleventhProject.Server.Application.Models.BloodType;
-using EleventhProject.Server.Application.Models.DonationHistory;
-using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Application.Models.User;
-using EleventhProject.Server.Infrastructure.Entities.BloodType;
 using EleventhProject.Server.Infrastructure.Entities.User;
-using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.User;
 

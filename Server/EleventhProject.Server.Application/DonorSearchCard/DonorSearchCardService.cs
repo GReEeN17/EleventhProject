@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using EleventhProject.Server.Application.Contracts.DonorSearchCard;
 using EleventhProject.Server.Application.Models.Clinic;
 using EleventhProject.Server.Application.Models.DonorSearchCard;

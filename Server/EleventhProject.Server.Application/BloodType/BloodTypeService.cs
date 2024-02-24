@@ -1,10 +1,13 @@
+using System;
+using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using AutoMapper;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Contracts.BloodType;
 using EleventhProject.Server.Application.Models.BloodType;
+using EleventhProject.Server.Application.User;
 using EleventhProject.Server.Infrastructure.Entities.BloodType;
-using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.BloodType;
 
