@@ -35,7 +35,7 @@ public class UserService : IUserService
 
     public Task<string> GetProfileByUserId(int id)
     {
-        
+        throw new NotImplementedException();
     }
     
     public Task<string> GetUserById(int id)
