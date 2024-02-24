@@ -1,6 +1,7 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.BloodType;
 using EleventhProject.Server.Infrastructure.Entities.BloodType;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -15,56 +16,59 @@ public class BloodTypeRepository : IBloodTypeRepository
 
     public IQueryable<BloodTypeEntity> GetBloodType(int bloodTypeId)
     {
-        throw new NotImplementedException();
+        return _context.Set<BloodTypeEntity>().Where(x => x.Id == bloodTypeId).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<BloodTypeEntity> GetBloodType()
     {
-        throw new NotImplementedException();
+        return _context.Set<BloodTypeEntity>().Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<BloodTypeEntity> GetAllBloodTypes()
     {
-        throw new NotImplementedException();
+        return _context.Set<BloodTypeEntity>().AsQueryable();
     }
 
-    public Task<BloodTypeEntity> CreateBloodType(BloodTypeModel bloodType)
+    public async Task<BloodTypeEntity> CreateBloodType(BloodTypeEntity bloodType)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<BloodTypeEntity>().AddAsync(bloodType);
+        return entitiy.Entity;
     }
 
-    public Task CreateRangeBloodTypes(IEnumerable<BloodTypeModel> bloodTypes)
+    public async Task CreateRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes)
     {
-        throw new NotImplementedException();
+        await _context.Set<BloodTypeEntity>().AddRangeAsync(bloodTypes);
     }
 
-    public Task DeleteBloodType(int bloodTypeId)
+    public async Task DeleteBloodType(int bloodTypeId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<BloodTypeEntity>().FirstOrDefaultAsync(x => x.Id == bloodTypeId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task RemoveBloodType(BloodTypeModel bloodType)
+    public async Task RemoveBloodType(BloodTypeEntity bloodType)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<BloodTypeEntity>().Remove(bloodType));
     }
 
-    public Task RemoveRangeBloodTypes(IEnumerable<BloodTypeModel> bloodTypes)
+    public async Task RemoveRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<BloodTypeEntity>().RemoveRange(bloodTypes));
     }
 
-    public Task UpdateBloodType(BloodTypeModel bloodType)
+    public async Task UpdateBloodType(BloodTypeEntity bloodType)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<BloodTypeEntity>().Update(bloodType));
     }
 
-    public Task UpdateRangeBloodTypes(IEnumerable<BloodTypeModel> bloodTypes)
+    public async Task UpdateRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<BloodTypeEntity>().UpdateRange(bloodTypes));
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }

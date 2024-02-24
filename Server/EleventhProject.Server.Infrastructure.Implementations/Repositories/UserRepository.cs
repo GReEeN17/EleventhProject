@@ -2,6 +2,7 @@ using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.City;
 using EleventhProject.Server.Application.Models.User;
 using EleventhProject.Server.Infrastructure.Entities.User;
+using Microsoft.EntityFrameworkCore;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -13,58 +14,62 @@ public class UserRepository : IUserRepository
     {
         _context = context;
     }
+
     public IQueryable<UserEntity> GetUser(int userId)
     {
-        throw new NotImplementedException();
+        return _context.Set<UserEntity>().Where(x => x.Id == userId).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<UserEntity> GetUser()
     {
-        throw new NotImplementedException();
+        return _context.Set<UserEntity>().Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<UserEntity> GetAllUsers()
     {
-        throw new NotImplementedException();
+        return _context.Set<UserEntity>().AsQueryable();
     }
 
-    public Task<UserEntity> CreateUser(UserModel user)
+    public async Task<UserEntity> CreateUser(UserEntity user)
     {
-        throw new NotImplementedException();
+        var entitiy = await _context.Set<UserEntity>().AddAsync(user);
+        return entitiy.Entity;
     }
 
-    public Task CreateRangeUsers(IEnumerable<UserModel> users)
+    public async Task CreateRangeUsers(IEnumerable<UserEntity> users)
     {
-        throw new NotImplementedException();
+        await _context.Set<UserEntity>().AddRangeAsync(users);
     }
 
-    public Task DeleteUser(int userId)
+    public async Task DeleteUser(int userId)
     {
-        throw new NotImplementedException();
+        var activeEntity = await _context.Set<UserEntity>().FirstOrDefaultAsync(x => x.Id == userId);
+        activeEntity.IsActive = false;
+        await Task.Run(() => _context.Update(activeEntity));
     }
 
-    public Task RemoveUser(UserModel user)
+    public async Task RemoveUser(UserEntity user)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<UserEntity>().Remove(user));
     }
 
-    public Task RemoveRangeUsers(IEnumerable<UserModel> users)
+    public async Task RemoveRangeUsers(IEnumerable<UserEntity> users)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<UserEntity>().RemoveRange(users));
     }
 
-    public Task UpdateUser(UserModel user)
+    public async Task UpdateUser(UserEntity user)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<UserEntity>().Update(user));
     }
 
-    public Task UpdateRangeUsers(IEnumerable<UserModel> users)
+    public async Task UpdateRangeUsers(IEnumerable<UserEntity> users)
     {
-        throw new NotImplementedException();
+        await Task.Run(() => _context.Set<UserEntity>().UpdateRange(users));
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }
