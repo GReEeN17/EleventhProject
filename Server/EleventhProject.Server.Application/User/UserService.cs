@@ -144,11 +144,6 @@ public static class UserMapper
             userEntity.PhoneNumber,
             userEntity.Surname,
             userEntity.Name,
-            userEntity.MiddleName)
-        {
-            NotReadyForDonation = userEntity.NotReadyForDonation,
-            AbsenceBeginDate = userEntity.AbsenceBeginDate,
-            AbsenceEndDate = userEntity.AbsenceEndDate
-        };
+            userEntity.MiddleName);
     }
 }
