@@ -15,4 +15,9 @@ public class ClinicService : IClinicService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<ClinicModel> GetAllClinics()
+    {
+        throw new NotImplementedException();
+    }
 }

@@ -1,3 +1,4 @@
+using EleventhProject.Server.Application.Models.City;
 using EleventhProject.Server.Application.Models.Clinic;
 using EleventhProject.Server.Application.Models.DonorSearchCard;
 using EleventhProject.Server.Application.Models.User;
@@ -10,4 +11,6 @@ public interface IDonorSearchCardService
         DateTime endDate, bool isUrgent);
 
     DonorSearchCardModel GetDonorSearchCardById(int donorSearchCardId);
+
+    IEnumerable<DonorSearchCardModel> GetDonorSearchCardsByCity(int cityId);
 }

@@ -21,4 +21,9 @@ public class PetService : IPetService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<PetModel> GetAllPetsByUserId(int userId)
+    {
+        throw new NotImplementedException();
+    }
 }

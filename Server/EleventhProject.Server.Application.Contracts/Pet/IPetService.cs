@@ -13,4 +13,6 @@ public interface IPetService
     PetModel GetPetById(int petId);
 
     PetModel UpdatePet(int petId, UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
+
+    IEnumerable<PetModel> GetAllPetsByUserId(int userId);
 }

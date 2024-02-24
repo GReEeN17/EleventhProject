@@ -14,4 +14,9 @@ public class BreedService : IBreedService
     {
         throw new NotImplementedException();
     }
+
+    public IEnumerable<BreedModel> GetAllBreeds()
+    {
+        throw new NotImplementedException();
+    }
 }

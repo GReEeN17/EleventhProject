@@ -7,4 +7,6 @@ public interface IVaccinationDictService
     VaccinationDictModel CreateVaccinationDict(string title);
 
     VaccinationDictModel GetVaccinationDictById(int vaccinationDictId);
+
+    IEnumerable<VaccinationDictModel> GetAllVaccinations();
 }
