@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.Clinic;
 using EleventhProject.Server.Infrastructure.Entities.Clinic;
@@ -13,9 +14,9 @@ public class ClinicRepository : IClinicRepository
     {
         _context = context;
     }
-    public IQueryable<ClinicEntity> GetClinic(int clinicId)
+    public IQueryable<ClinicEntity> GetClinic(Expression<Func<ClinicEntity, bool>> selector)
     {
-        return _context.Set<ClinicEntity>().Where(x => x.Id == clinicId).Where(x => x.IsActive).AsQueryable();
+        return _context.Set<ClinicEntity>().Where(selector).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<ClinicEntity> GetClinic()
@@ -27,11 +28,6 @@ public class ClinicRepository : IClinicRepository
     {
         return _context.Set<ClinicEntity>().AsQueryable();
 
-    }
-
-    public IQueryable<ClinicEntity> GetAllClinics(int cityId)
-    {
-        return _context.Set<ClinicEntity>().Where(x => x.City.Id == cityId).Where(x => x.IsActive).AsQueryable();
     }
 
     public async Task<ClinicEntity> CreateClinic(ClinicEntity clinic)

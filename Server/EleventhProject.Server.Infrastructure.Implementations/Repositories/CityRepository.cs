@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.City;
 using EleventhProject.Server.Infrastructure.Entities.City;
@@ -13,9 +14,9 @@ public class CityRepository : ICityRepository
     {
         _context = context;
     }
-    public IQueryable<CityEntity> GetCity(int cityId)
+    public IQueryable<CityEntity> GetCity(Expression<Func<CityEntity, bool>> selector)
     {
-        return _context.Set<CityEntity>().Where(x => x.Id == cityId).Where(x => x.IsActive).AsQueryable();
+        return _context.Set<CityEntity>().Where(selector).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<CityEntity> GetCity()

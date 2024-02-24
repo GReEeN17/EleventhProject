@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.Pet;
@@ -15,9 +16,9 @@ public class DonationHistoryRepository : IDonationHistoryRepository
         _context = context;
     }
 
-    public IQueryable<DonationHistoryEntity> GetDonationHistory(int donationHistoryId)
+    public IQueryable<DonationHistoryEntity> GetDonationHistory(Expression<Func<DonationHistoryEntity, bool>> selector)
     {
-        return _context.Set<DonationHistoryEntity>().Where(x => x.Id == donationHistoryId).Where(x => x.IsActive)
+        return _context.Set<DonationHistoryEntity>().Where(selector).Where(x => x.IsActive)
             .AsQueryable();
     }
 

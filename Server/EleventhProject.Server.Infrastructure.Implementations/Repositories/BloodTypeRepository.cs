@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.BloodType;
 using EleventhProject.Server.Infrastructure.Entities.BloodType;
@@ -14,9 +15,9 @@ public class BloodTypeRepository : IBloodTypeRepository
         _context = context;
     }
 
-    public IQueryable<BloodTypeEntity> GetBloodType(int bloodTypeId)
+    public IQueryable<BloodTypeEntity> GetBloodType(Expression<Func<BloodTypeEntity, bool>> selector)
     {
-        return _context.Set<BloodTypeEntity>().Where(x => x.Id == bloodTypeId).Where(x => x.IsActive).AsQueryable();
+        return _context.Set<BloodTypeEntity>().Where(selector).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<BloodTypeEntity> GetBloodType()

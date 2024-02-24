@@ -32,15 +32,10 @@ public class UserService : IUserService
         _mapper = mapper;
         _cityService = cityService;
     }
-
-    public Task<string> GetProfileByUserId(int id)
-    {
-        throw new NotImplementedException();
-    }
     
     public Task<string> GetUserById(int id)
     {
-        var entity = _userRepository.GetUser(id);
+        var entity = _userRepository.GetUser().Where(user => user.Id == id);
         var model = _mapper.Map<UserModel>(entity);
 
         var response = new
@@ -53,6 +48,11 @@ public class UserService : IUserService
         };
 
         return Task.FromResult(JsonSerializer.Serialize(response));
+    }
+
+    public Task<string> Login(string username, string password)
+    {
+        throw new NotImplementedException();
     }
 
     public Task<string> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,

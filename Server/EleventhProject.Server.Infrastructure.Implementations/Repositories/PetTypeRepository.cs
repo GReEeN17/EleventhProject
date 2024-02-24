@@ -1,5 +1,7 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.PetType;
+using EleventhProject.Server.Infrastructure.Entities.Pet;
 using EleventhProject.Server.Infrastructure.Entities.PetType;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +15,9 @@ public class PetTypeRepository : IPetTypeRepository
     {
         _context = context;
     }
-    public IQueryable<PetTypeEntity> GetPetType(int petTypeId)
+    public IQueryable<PetTypeEntity> GetPetType(Expression<Func<PetTypeEntity, bool>> selector)
     {
-        return _context.Set<PetTypeEntity>().Where(x => x.Id == petTypeId).Where(x => x.IsActive).AsQueryable();
+        return _context.Set<PetTypeEntity>().Where(selector).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<PetTypeEntity> GetPetType()

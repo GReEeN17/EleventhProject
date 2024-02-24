@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.VaccinationDict;
 using EleventhProject.Server.Infrastructure.Entities.VaccinationDict;
@@ -13,9 +14,9 @@ public class VaccinationDictRepository : IVaccinationDictRepository
     {
         _context = context;
     }
-    public IQueryable<VaccinationDictEntity> GetVaccinationDict(int vaccinationDictId)
+    public IQueryable<VaccinationDictEntity> GetVaccinationDict(Expression<Func<VaccinationDictEntity, bool>> selector)
     {
-        return _context.Set<VaccinationDictEntity>().Where(x => x.Id == vaccinationDictId).Where(x => x.IsActive).AsQueryable();
+        return _context.Set<VaccinationDictEntity>().Where(selector).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<VaccinationDictEntity> GetVaccinationDict()

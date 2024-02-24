@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.Breed;
 using EleventhProject.Server.Infrastructure.Entities.Breed;
@@ -13,9 +14,9 @@ public class BreedRepository : IBreedRepository
     {
         _context = context;
     }
-    public IQueryable<BreedEntity> GetBreed(int breedId)
+    public IQueryable<BreedEntity> GetBreed(Expression<Func<BreedEntity, bool>> selector)
     {
-        return _context.Set<BreedEntity>().Where(x => x.Id == breedId).Where(x => x.IsActive).AsQueryable();
+        return _context.Set<BreedEntity>().Where(selector).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<BreedEntity> GetBreed()

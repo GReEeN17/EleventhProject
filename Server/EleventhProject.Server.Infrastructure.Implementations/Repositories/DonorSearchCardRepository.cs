@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.Clinic;
 using EleventhProject.Server.Application.Models.DonationHistory;
@@ -17,9 +18,9 @@ public class DonorSearchCardRepository : IDonorSearchRepository
     {
         _context = context;
     }
-    public IQueryable<DonorSearchCardEntity> GetDonorSearchCard(int donorSearchCardId)
+    public IQueryable<DonorSearchCardEntity> GetDonorSearchCard(Expression<Func<DonorSearchCardEntity, bool>> selector)
     {
-        return _context.Set<DonorSearchCardEntity>().Where(x => x.Id == donorSearchCardId).Where(x => x.IsActive).AsQueryable();
+        return _context.Set<DonorSearchCardEntity>().Where(selector).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<DonorSearchCardEntity> GetDonorSearchCard()

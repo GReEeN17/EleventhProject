@@ -22,7 +22,7 @@ public class BloodTypeService : IBloodTypeService
 
     public Task<string> GetBloodTypeById(int bloodTypeId)
     {
-        var entity = _bloodTypeRepository.GetBloodType(bloodTypeId);
+        var entity = _bloodTypeRepository.GetBloodType().Where(bloodType => bloodType.Id == bloodTypeId);
         var bloodTypeModel = _mapper.Map<BloodTypeModel>(entity);
 
         var response = new

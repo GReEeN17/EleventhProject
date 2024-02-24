@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.City;
 using EleventhProject.Server.Application.Models.User;
@@ -15,9 +16,9 @@ public class UserRepository : IUserRepository
         _context = context;
     }
 
-    public IQueryable<UserEntity> GetUser(int userId)
+    public IQueryable<UserEntity> GetUser(Expression<Func<UserEntity, bool>> selector)
     {
-        return _context.Set<UserEntity>().Where(x => x.Id == userId).Where(x => x.IsActive).AsQueryable();
+        return _context.Set<UserEntity>().Where(selector).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<UserEntity> GetUser()

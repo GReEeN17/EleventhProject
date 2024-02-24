@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.BloodType;
 using EleventhProject.Server.Application.Models.Breed;
@@ -17,9 +18,9 @@ public class PetRepository : IPetRepository
     {
         _context = context;
     }
-    public IQueryable<PetEntity> GetPet(int petId)
+    public IQueryable<PetEntity> GetPet(Expression<Func<PetEntity, bool>> selector)
     {
-        return _context.Set<PetEntity>().Where(x => x.Id == petId).Where(x => x.IsActive).AsQueryable();
+        return _context.Set<PetEntity>().Where(selector).Where(x => x.IsActive).AsQueryable();
     }
 
     public IQueryable<PetEntity> GetPet()
