@@ -1,11 +1,14 @@
 using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.Pet;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.Contracts.DonationHistory;
 
 public interface IDonationHistoryService
 {
-    DonationHistoryModel CreateDonationHistory(PetModel recipient, PetModel donor, DateTime date);
+    Task<IActionResult> CreateDonationHistory(PetModel recipient, PetModel donor, DateTime date);
 
-    DonationHistoryModel GetDonationHistoryById(int donationHistoryId);
+    Task<IActionResult> GetDonationHistoryById(int donationHistoryId);
+
+    IAsyncEnumerable<IActionResult> GetAllDonationHistory();
 }

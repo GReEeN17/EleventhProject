@@ -1,10 +1,14 @@
+using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.BloodType;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.Contracts.BloodType;
 
 public interface IBloodTypeService
 {
-    BloodTypeModel CreateBloodType(string title);
+    Task<string> CreateBloodType(string title);
 
-    BloodTypeModel GetBloodTypeById(int bloodTypeId);
+    Task<string> GetBloodTypeById(int bloodTypeId);
+
+    string GetAllBloodTypes();
 }

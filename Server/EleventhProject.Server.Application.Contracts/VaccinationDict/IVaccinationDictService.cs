@@ -1,10 +1,13 @@
 using EleventhProject.Server.Application.Models.VaccinationDict;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.Contracts.VaccinationDict;
 
 public interface IVaccinationDictService
 {
-    VaccinationDictModel CreateVaccinationDict(string title);
+    Task<IActionResult> CreateVaccinationDict(string title);
 
-    VaccinationDictModel GetVaccinationDictById(int vaccinationDictId);
+    Task<IActionResult> GetVaccinationDictById(int vaccinationDictId);
+
+    IAsyncEnumerable<IActionResult> GetAllVaccinations();
 }

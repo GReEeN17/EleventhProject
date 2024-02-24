@@ -1,8 +1,25 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.BloodType;
+using EleventhProject.Server.Infrastructure.Entities.BloodType;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IBloodTypeRepository
 {
-    Task<BloodTypeModel> CreateBloodType(string title);
+    IQueryable<BloodTypeEntity> GetBloodType(Expression<Func<BloodTypeEntity, bool>> selector);
+    IQueryable<BloodTypeEntity> GetBloodType();
+    IQueryable<BloodTypeEntity> GetAllBloodTypes();
+    
+    Task<BloodTypeEntity> CreateBloodType(BloodTypeEntity bloodType);
+    Task CreateRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes);
+
+    Task DeleteBloodType(int bloodTypeId);
+
+    Task RemoveBloodType(BloodTypeEntity bloodType);
+    Task RemoveRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes);
+
+    Task UpdateBloodType(BloodTypeEntity bloodType);
+    Task UpdateRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes);
+    
+    Task<int> SaveChangesAsync();
 }

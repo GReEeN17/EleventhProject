@@ -1,6 +1,7 @@
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using AutoMapper;
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.BloodType;
 using EleventhProject.Server.Application.Breed;
@@ -19,6 +20,7 @@ using EleventhProject.Server.Application.Contracts.User;
 using EleventhProject.Server.Application.Contracts.VaccinationDict;
 using EleventhProject.Server.Application.DonationHistory;
 using EleventhProject.Server.Application.DonorSearchCard;
+using EleventhProject.Server.Application.Middlewares;
 using EleventhProject.Server.Application.Pet;
 using EleventhProject.Server.Application.PetType;
 using EleventhProject.Server.Application.PetVaccination;
@@ -27,6 +29,9 @@ using EleventhProject.Server.Application.VaccinationDict;
 using EleventhProject.Server.Infrastructure.Entities.User;
 using EleventhProject.Server.Infrastructure.Implementations.DataContext;
 using EleventhProject.Server.Infrastructure.Implementations.Repositories;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +51,23 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        /*services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = AuthOptions.Issuer,
+                    ValidateAudience = true,
+                    ValidAudience = AuthOptions.Audience,
+                    ValidateLifetime = true,
+                    IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
+                    ValidateIssuerSigningKey = true
+                };
+            });
+            */
+            
         services.AddControllers(options =>
         {
             options.Conventions.Add(new RouteTokenTransformerConvention(
@@ -68,6 +90,8 @@ public class Startup
 
         services.AddAutoMapper(typeof(Startup));
 
+        services.Configure<JwtOptions>(_configuration.GetSection(nameof(JwtOptions)));
+
         services.AddTransient<IBloodTypeService, BloodTypeService>();
         services.AddTransient<IBreedService, BreedService>();
         services.AddTransient<ICityService, CityService>();
@@ -79,6 +103,7 @@ public class Startup
         services.AddTransient<IPetVaccinationService, PetVaccinationService>();
         services.AddTransient<IUserService, UserService>();
         services.AddTransient<IVaccinationDictService, VaccinationDictService>();
+        services.AddScoped<IJwtProvider, JwtProvider>();
         services.AddScoped<IBloodTypeRepository, BloodTypeRepository>();
         services.AddScoped<IBreedRepository, BreedRepository>();
         services.AddScoped<ICityRepository, CityRepository>();
@@ -90,12 +115,14 @@ public class Startup
         services.AddScoped<IPetVaccinationRepository, PetVaccinationRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IVaccinationDictRepository, VaccinationDictRepository>();
-        services.AddSingleton(new UserEntity() { Id = 0 });
+        services.AddSingleton(new UserEntity{ Id = 0 });
     }
     
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
     {
         app.UseRouting();
+        
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.UseSwagger();

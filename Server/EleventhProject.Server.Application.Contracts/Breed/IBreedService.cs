@@ -1,10 +1,13 @@
 using EleventhProject.Server.Application.Models.Breed;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.Contracts.Breed;
 
 public interface IBreedService
 {
-    BreedModel CreateBreed(string title);
+    Task<IActionResult> CreateBreed(string title);
 
-    BreedModel GetBreedById(int breedId);
+    Task<IActionResult> GetBreedById(int breedId);
+
+    IAsyncEnumerable<IActionResult> GetAllBreeds();
 }

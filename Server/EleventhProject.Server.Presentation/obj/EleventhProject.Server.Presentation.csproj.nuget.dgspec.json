@@ -28,6 +28,9 @@
             "projectReferences": {
               "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj": {
                 "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj"
+              },
+              "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Entities/EleventhProject.Server.Infrastructure.Entities.csproj": {
+                "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Entities/EleventhProject.Server.Infrastructure.Entities.csproj"
               }
             }
           }
@@ -36,11 +39,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -101,16 +99,21 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -159,11 +162,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -216,6 +214,12 @@
               },
               "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj": {
                 "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj"
+              },
+              "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj": {
+                "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj"
+              },
+              "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Entities/EleventhProject.Server.Infrastructure.Entities.csproj": {
+                "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Infrastructure.Entities/EleventhProject.Server.Infrastructure.Entities.csproj"
               }
             }
           }
@@ -224,16 +228,21 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -282,11 +291,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -347,11 +351,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -451,11 +450,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -465,6 +459,10 @@
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
               "version": "[8.0.0, )"
             },
@@ -518,6 +516,9 @@
               "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj": {
                 "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Contracts/EleventhProject.Server.Application.Contracts.csproj"
               },
+              "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj": {
+                "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application.Models/EleventhProject.Server.Application.Models.csproj"
+              },
               "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application/EleventhProject.Server.Application.csproj": {
                 "projectPath": "/Users/azelen/Desktop/OwnProjects/EleventhProject/Server/EleventhProject.Server.Application/EleventhProject.Server.Application.csproj"
               },
@@ -534,20 +535,19 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "AutoMapper": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[13.0.1, )"
+              "version": "[8.0.2, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -574,6 +574,10 @@
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[7.3.1, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",

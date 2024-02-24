@@ -1,10 +1,25 @@
-using EleventhProject.Server.Application.Models.City;
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.User;
+using EleventhProject.Server.Infrastructure.Entities.User;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IUserRepository
 {
-    Task<UserModel> CreateUser(CityModel city, string userName, string password, long phoneNumber, string surname,
-        string name, string middleName, bool notReadyForDonation, DateTime? absenceBeginDate, DateTime? absenceEndDate);
+    IQueryable<UserEntity> GetUser(Expression<Func<UserEntity, bool>> selector);
+    IQueryable<UserEntity> GetUser();
+    IQueryable<UserEntity> GetAllUsers();
+    
+    Task<UserEntity> CreateUser(UserEntity user);
+    Task CreateRangeUsers(IEnumerable<UserEntity> users);
+
+    Task DeleteUser(int userId);
+
+    Task RemoveUser(UserEntity user);
+    Task RemoveRangeUsers(IEnumerable<UserEntity> users);
+
+    Task UpdateUser(UserEntity user);
+    Task UpdateRangeUsers(IEnumerable<UserEntity> users);
+    
+    Task<int> SaveChangesAsync();
 }

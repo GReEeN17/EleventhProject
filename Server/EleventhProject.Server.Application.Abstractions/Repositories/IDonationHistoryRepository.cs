@@ -1,9 +1,25 @@
+using System.Linq.Expressions;
 using EleventhProject.Server.Application.Models.DonationHistory;
-using EleventhProject.Server.Application.Models.Pet;
+using EleventhProject.Server.Infrastructure.Entities.DonationHistory;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IDonationHistoryRepository
 {
-    Task<DonationHistoryModel> CreateDonationHistory(PetModel recipient, PetModel donor, DateTime date);
+    IQueryable<DonationHistoryEntity> GetDonationHistory(Expression<Func<DonationHistoryEntity, bool>> selector);
+    IQueryable<DonationHistoryEntity> GetDonationHistory();
+    IQueryable<DonationHistoryEntity> GetAllDonationHistories();
+    
+    Task<DonationHistoryEntity> CreateDonationHistory(DonationHistoryEntity donationHistory);
+    Task CreateRangeDonationHistories(IEnumerable<DonationHistoryEntity> donationHistories);
+
+    Task DeleteDonationHistory(int donationHistoryId);
+
+    Task RemoveDonationHistory(DonationHistoryEntity donationHistory);
+    Task RemoveRangeDonationHistories(IEnumerable<DonationHistoryEntity> donationHistories);
+
+    Task UpdateDonationHistory(DonationHistoryEntity donationHistory);
+    Task UpdateRangeDonationHistories(IEnumerable<DonationHistoryEntity> donationHistories);
+    
+    Task<int> SaveChangesAsync();
 }
