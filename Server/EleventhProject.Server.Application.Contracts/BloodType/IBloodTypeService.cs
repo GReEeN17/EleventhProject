@@ -10,5 +10,5 @@ public interface IBloodTypeService
 
     Task<string> GetBloodTypeById(int bloodTypeId);
 
-    IAsyncEnumerable<string> GetAllBloodTypes();
+    string GetAllBloodTypes();
 }

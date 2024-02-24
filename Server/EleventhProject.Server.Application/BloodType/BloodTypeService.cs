@@ -16,6 +16,8 @@ public class BloodTypeService : IBloodTypeService
     {
         var entity = _mapper.Map<BloodTypeEntity>(new BloodTypeModel(title));
         var result = _bloodTypeRepository.CreateBloodType(entity);
+
+        return Task.FromResult(JsonSerializer.Serialize(result));
     }
 
     public Task<string> GetBloodTypeById(int bloodTypeId)
@@ -31,7 +33,7 @@ public class BloodTypeService : IBloodTypeService
         return Task.FromResult((JsonSerializer.Serialize(response)));
     }
 
-    public IAsyncEnumerable<IActionResult> GetAllBloodTypes()
+    public string GetAllBloodTypes()
     {
         throw new NotImplementedException();
     }
