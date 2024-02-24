@@ -6,9 +6,9 @@ namespace EleventhProject.Server.Application.Contracts.DonationHistory;
 
 public interface IDonationHistoryService
 {
-    Task<IActionResult> CreateDonationHistory(PetModel recipient, PetModel donor, DateTime date);
+    Task<DonationHistoryModel> CreateDonationHistory(PetModel recipient, PetModel donor, DateTime date);
 
-    Task<IActionResult> GetDonationHistoryById(int donationHistoryId);
+    Task<DonationHistoryModel> GetDonationHistoryById(int donationHistoryId);
 
-    IAsyncEnumerable<IActionResult> GetAllDonationHistory();
+    IAsyncEnumerable<DonationHistoryModel> GetAllDonationHistory();
 }

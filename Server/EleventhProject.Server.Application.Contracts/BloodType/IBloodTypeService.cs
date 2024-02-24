@@ -6,9 +6,9 @@ namespace EleventhProject.Server.Application.Contracts.BloodType;
 
 public interface IBloodTypeService
 {
-    Task<string> CreateBloodType(string title);
+    Task<BloodTypeModel> CreateBloodType(string title);
 
-    Task<string> GetBloodTypeById(int bloodTypeId);
+    Task<BloodTypeModel> GetBloodTypeById(int bloodTypeId);
 
-    string GetAllBloodTypes();
+    IAsyncEnumerable<BloodTypeModel> GetAllBloodTypes();
 }

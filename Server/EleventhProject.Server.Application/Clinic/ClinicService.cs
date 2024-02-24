@@ -10,17 +10,17 @@ namespace EleventhProject.Server.Application.Clinic;
 
 public class ClinicService : IClinicService
 {
-    public Task<IActionResult> CreateClinic(CityModel city, string Title, string Address)
+    public Task<ClinicModel> CreateClinic(CityModel city, string Title, string Address)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IActionResult> GetClinicById(int clinicId)
+    public Task<ClinicModel> GetClinicById(int clinicId)
     {
         throw new NotImplementedException();
     }
 
-    public IAsyncEnumerable<IActionResult> GetAllClinics(int? cityId)
+    public IAsyncEnumerable<ClinicModel> GetAllClinics(int? cityId)
     {
         throw new NotImplementedException();
     }

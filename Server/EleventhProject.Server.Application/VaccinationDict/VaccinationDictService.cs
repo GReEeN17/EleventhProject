@@ -9,17 +9,17 @@ namespace EleventhProject.Server.Application.VaccinationDict;
 
 public class VaccinationDictService : IVaccinationDictService
 {
-    public Task<IActionResult> CreateVaccinationDict(string title)
+    public Task<VaccinationDictModel> CreateVaccinationDict(string title)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IActionResult> GetVaccinationDictById(int vaccinationDictId)
+    public Task<VaccinationDictModel> GetVaccinationDictById(int vaccinationDictId)
     {
         throw new NotImplementedException();
     }
 
-    public IAsyncEnumerable<IActionResult> GetAllVaccinations()
+    public IAsyncEnumerable<VaccinationDictModel> GetAllVaccinations()
     {
         throw new NotImplementedException();
     }

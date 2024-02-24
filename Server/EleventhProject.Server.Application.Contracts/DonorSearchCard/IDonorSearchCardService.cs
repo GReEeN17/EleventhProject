@@ -8,10 +8,10 @@ namespace EleventhProject.Server.Application.Contracts.DonorSearchCard;
 
 public interface IDonorSearchCardService
 {
-    Task<IActionResult> CreateDonorSearchCard(UserModel creator, ClinicModel clinic, string reason, int bloodAmount,
+    Task<DonorSearchCardModel> CreateDonorSearchCard(UserModel creator, ClinicModel clinic, string reason, int bloodAmount,
         DateTime endDate, bool isUrgent);
 
-    Task<IActionResult> GetDonorSearchCardById(int donorSearchCardId);
+    Task<DonorSearchCardModel> GetDonorSearchCardById(int donorSearchCardId);
 
-    IAsyncEnumerable<IActionResult> GetDonorSearchCardsByCity(int cityId);
+    IAsyncEnumerable<DonorSearchCardModel> GetDonorSearchCardsByCity(int cityId);
 }

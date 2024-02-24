@@ -11,18 +11,18 @@ namespace EleventhProject.Server.Application.DonorSearchCard;
 
 public class DonorSearchCardService : IDonorSearchCardService
 {
-    public Task<IActionResult> CreateDonorSearchCard(UserModel creator, ClinicModel clinic, string reason, int bloodAmount,
+    public Task<DonorSearchCardModel> CreateDonorSearchCard(UserModel creator, ClinicModel clinic, string reason, int bloodAmount,
         DateTime endDate, bool isUrgent)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IActionResult> GetDonorSearchCardById(int donorSearchCardId)
+    public Task<DonorSearchCardModel> GetDonorSearchCardById(int donorSearchCardId)
     {
         throw new NotImplementedException();
     }
 
-    public IAsyncEnumerable<IActionResult> GetDonorSearchCardsByCity(int cityId)
+    public IAsyncEnumerable<DonorSearchCardModel> GetDonorSearchCardsByCity(int cityId)
     {
         throw new NotImplementedException();
     }

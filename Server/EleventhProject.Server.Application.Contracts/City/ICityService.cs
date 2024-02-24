@@ -5,9 +5,9 @@ namespace EleventhProject.Server.Application.Contracts.City;
 
 public interface ICityService
 {
-    Task<string> CreateCity(string title);
+    Task<CityModel> CreateCity(string title);
 
     Task<CityModel> GetCityById(int cityId);
 
-    string GetAllCities();
+    IAsyncEnumerable<CityModel> GetAllCities();
 }

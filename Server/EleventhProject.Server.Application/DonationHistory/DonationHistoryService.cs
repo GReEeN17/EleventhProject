@@ -10,17 +10,17 @@ namespace EleventhProject.Server.Application.DonationHistory;
 
 public class DonationHistoryService : IDonationHistoryService
 {
-    public Task<IActionResult> CreateDonationHistory(PetModel recipient, PetModel donor, DateTime date)
+    public Task<DonationHistoryModel> CreateDonationHistory(PetModel recipient, PetModel donor, DateTime date)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IActionResult> GetDonationHistoryById(int donationHistoryId)
+    public Task<DonationHistoryModel> GetDonationHistoryById(int donationHistoryId)
     {
         throw new NotImplementedException();
     }
 
-    public IAsyncEnumerable<IActionResult> GetAllDonationHistory()
+    public IAsyncEnumerable<DonationHistoryModel> GetAllDonationHistory()
     {
         throw new NotImplementedException();
     }
