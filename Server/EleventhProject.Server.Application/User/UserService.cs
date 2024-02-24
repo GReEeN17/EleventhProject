@@ -75,11 +75,32 @@ public class UserService : IUserService
         return Task.FromResult(token);
     }
 
-    public Task<string> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
+    public async Task<string> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
         string middleName)
     {
-        CityModel cityModel = _cityService.GetCityById(cityId).Result;
+        CityModel cityModel = _cityService.GetCity(city => city.Id == cityId).Result;
+        UserModel userModel = new UserModel
+        {
+            UserName = username,
+            Password = password,
+            PhoneNumber = phoneNumber,
+            Surname = surname,
+            Name = name,
+            MiddleName = name,
+            NotReadyForDonation = false,
+            IsActive = true
+        };
+        UserEntity userEntity = _mapper.Map<UserEntity>(userModel);
+
+        var result = await _userRepository.CreateUser(userEntity);
+        await _userRepository.SaveChangesAsync();
+
+        var response = new
+        {
+            username = result.UserName
+        };
         
+        return JsonSerializer.Serialize(response);
     }
 
     public Task<string> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname,

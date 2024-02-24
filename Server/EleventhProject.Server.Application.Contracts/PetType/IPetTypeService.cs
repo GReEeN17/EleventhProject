@@ -5,7 +5,7 @@ namespace EleventhProject.Server.Application.Contracts.PetType;
 
 public interface IPetTypeService
 {
-    Task<IActionResult> CreatePetType(string title);
+    Task<string> CreatePetType(string title);
 
     Task<IActionResult> GetPetTypeById(int petTypeId);
 

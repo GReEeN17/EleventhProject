@@ -5,7 +5,6 @@ namespace EleventhProject.Server.Application.Models.User;
 
 public class UserModel : Model
 {
-    public int Id { get; set; }
     public CityModel City { get; set; }
     public string UserName { get; set; }
     public string Password { get; set; }

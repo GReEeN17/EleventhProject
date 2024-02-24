@@ -31,7 +31,15 @@ public class UserController(IUserService userService) : BaseController
     {
         try
         {
-            var user = await userService.CreateUser(request.CityId, request.Username, request.Password, request.PhoneNumber, request.Surname, request.Name, request.MiddleName);
+            var user = await userService.CreateUser(
+                request.CityId,
+                request.Username,
+                request.Password,
+                request.PhoneNumber,
+                request.Surname,
+                request.Name,
+                request.MiddleName);
+            
             if (user == null)
             {
                 return NotFound();

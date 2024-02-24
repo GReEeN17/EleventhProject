@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text.Json;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -31,10 +32,10 @@ public class CityService : ICityService
         return Task.FromResult(JsonSerializer.Serialize(result));
     }
 
-    public Task<CityModel> GetCityById(int cityId)
+    public Task<CityModel> GetCity(Expression<Func<CityEntity, bool>> selector)
     {
-        var entity = _cityRepository.GetCity().Where(city => city.Id == cityId);
-        var cityModel = new CityModel(entity.First().Title);
+        var entity = _cityRepository.GetCity().FirstOrDefault(selector);
+        var cityModel = _mapper.Map<CityModel>(entity);
         
         return Task.FromResult(cityModel);
     }
