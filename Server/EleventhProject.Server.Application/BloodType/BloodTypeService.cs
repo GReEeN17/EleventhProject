@@ -17,23 +17,12 @@ public class BloodTypeService : IBloodTypeService
     private readonly IMapper _mapper;
     public Task<string> CreateBloodType(string title)
     {
-        var entity = _mapper.Map<BloodTypeEntity>(new BloodTypeModel(title));
-        var result = _bloodTypeRepository.CreateBloodType(entity);
-
-        return Task.FromResult(JsonSerializer.Serialize(result));
+        throw new NotImplementedException();
     }
 
     public Task<string> GetBloodTypeById(int bloodTypeId)
     {
-        var entity = _bloodTypeRepository.GetBloodType().Where(bloodType => bloodType.Id == bloodTypeId);
-        var bloodTypeModel = _mapper.Map<BloodTypeModel>(entity);
-
-        var response = new
-        {
-            title = bloodTypeModel.Title
-        };
-        
-        return Task.FromResult((JsonSerializer.Serialize(response)));
+        throw new NotImplementedException();
     }
 
     public string GetAllBloodTypes()
