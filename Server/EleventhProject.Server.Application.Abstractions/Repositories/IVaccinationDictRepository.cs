@@ -4,5 +4,20 @@ namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IVaccinationDictRepository
 {
-    Task<VaccinationDictModel> CreateVaccinationDict(string title);
+    IQueryable<VaccinationDictModel> GetVaccinationDict(int vaccinationDictId);
+    IQueryable<VaccinationDictModel> GetVaccinationDict();
+    IQueryable<VaccinationDictModel> GetAllVaccinationDicts();
+    
+    Task<int> CreateVaccinationDict(VaccinationDictModel vaccinationDict);
+    Task CreateRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts);
+
+    Task DeleteVaccinationDict(int vaccinationDictId);
+
+    Task RemoveVaccinationDict(VaccinationDictModel vaccinationDict);
+    Task RemoveRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts);
+
+    Task UpdateVaccinationDict(VaccinationDictModel vaccinationDict);
+    Task UpdateRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts);
+    
+    Task<int> SaveChangesAsync();
 }

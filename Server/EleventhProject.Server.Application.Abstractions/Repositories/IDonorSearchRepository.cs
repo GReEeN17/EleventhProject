@@ -1,11 +1,23 @@
-using EleventhProject.Server.Application.Models.Clinic;
 using EleventhProject.Server.Application.Models.DonorSearchCard;
-using EleventhProject.Server.Application.Models.User;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IDonorSearchRepository
 {
-    Task<DonorSearchCardModel> CreateDonorSearchCard(UserModel creator, ClinicModel clinic, string reason,
-        int bloodAmount, DateTime endDate, bool isUrgent);
+    IQueryable<DonorSearchCardModel> GetDonorSearchCard(int donorSearchCardId);
+    IQueryable<DonorSearchCardModel> GetDonorSearchCard();
+    IQueryable<DonorSearchCardModel> GetAllDonorSearchCards();
+    
+    Task<int> CreateDonorSearchCard(DonorSearchCardModel donorSearchCard);
+    Task CreateRangeDonorSearchCard(IEnumerable<DonorSearchCardModel> donorSearchCards);
+
+    Task DeleteDonorSearchCard(int donorSearchCardId);
+
+    Task RemoveDonorSearchCard(DonorSearchCardModel donorSearchCard);
+    Task RemoveRangeDonorSearchCards(IEnumerable<DonorSearchCardModel> donorSearchCards);
+
+    Task UpdateDonorSearchCard(DonorSearchCardModel donorSearchCard);
+    Task UpdateRangeDonorSearchCards(IEnumerable<DonorSearchCardModel> donorSearchCards);
+    
+    Task<int> SaveChangesAsync();
 }

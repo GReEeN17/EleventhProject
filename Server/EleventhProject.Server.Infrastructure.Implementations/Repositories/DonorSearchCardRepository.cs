@@ -7,8 +7,63 @@ namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
 public class DonorSearchCardRepository : IDonorSearchRepository
 {
-    public Task<DonorSearchCardModel> CreateDonorSearchCard(UserModel creator, ClinicModel clinic, string reason, int bloodAmount, DateTime endDate,
-        bool isUrgent)
+    private readonly DataContext.DataContext _context;
+
+    public DonorSearchCardRepository(DataContext.DataContext context)
+    {
+        _context = context;
+    }
+    public IQueryable<DonorSearchCardModel> GetDonorSearchCard(int donorSearchCardId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IQueryable<DonorSearchCardModel> GetDonorSearchCard()
+    {
+        throw new NotImplementedException();
+    }
+
+    public IQueryable<DonorSearchCardModel> GetAllDonorSearchCards()
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<int> CreateDonorSearchCard(DonorSearchCardModel donorSearchCard)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task CreateRangeDonorSearchCard(IEnumerable<DonorSearchCardModel> donorSearchCards)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task DeleteDonorSearchCard(int donorSearchCardId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task RemoveDonorSearchCard(DonorSearchCardModel donorSearchCard)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task RemoveRangeDonorSearchCards(IEnumerable<DonorSearchCardModel> donorSearchCards)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task UpdateDonorSearchCard(DonorSearchCardModel donorSearchCard)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task UpdateRangeDonorSearchCards(IEnumerable<DonorSearchCardModel> donorSearchCards)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<int> SaveChangesAsync()
     {
         throw new NotImplementedException();
     }
