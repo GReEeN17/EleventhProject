@@ -1,5 +1,6 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.Clinic;
+using EleventhProject.Server.Infrastructure.Entities.Clinic;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -11,27 +12,27 @@ public class ClinicRepository : IClinicRepository
     {
         _context = context;
     }
-    public IQueryable<ClinicModel> GetClinic(int breedId)
+    public IQueryable<ClinicEntity> GetClinic(int breedId)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<ClinicModel> GetClinic()
+    public IQueryable<ClinicEntity> GetClinic()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<ClinicModel> GetAllClinics()
+    public IQueryable<ClinicEntity> GetAllClinics()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<ClinicModel> GetAllClinics(int cityId)
+    public IQueryable<ClinicEntity> GetAllClinics(int cityId)
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> CreateClinic(ClinicModel clinic)
+    public Task<ClinicEntity> CreateClinic(ClinicModel clinic)
     {
         throw new NotImplementedException();
     }

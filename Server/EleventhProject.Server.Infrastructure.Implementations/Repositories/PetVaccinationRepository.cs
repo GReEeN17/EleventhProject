@@ -1,6 +1,7 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.PetVaccination;
 using EleventhProject.Server.Application.Models.VaccinationDict;
+using EleventhProject.Server.Infrastructure.Entities.PetVaccination;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -12,22 +13,22 @@ public class PetVaccinationRepository : IPetVaccinationRepository
     {
         _context = context;
     }
-    public IQueryable<PetVaccinationModel> GetPetVaccination(int petVaccinationId)
+    public IQueryable<PetVaccinationEntity> GetPetVaccination(int petVaccinationId)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<PetVaccinationModel> GetPetVaccination()
+    public IQueryable<PetVaccinationEntity> GetPetVaccination()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<PetVaccinationModel> GetAllPetVaccinations()
+    public IQueryable<PetVaccinationEntity> GetAllPetVaccinations()
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> CreatePetVaccination(PetVaccinationModel petVaccination)
+    public Task<PetVaccinationEntity> CreatePetVaccination(PetVaccinationModel petVaccination)
     {
         throw new NotImplementedException();
     }

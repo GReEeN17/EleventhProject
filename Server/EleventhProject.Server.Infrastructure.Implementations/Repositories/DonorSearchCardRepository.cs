@@ -1,7 +1,9 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.Clinic;
+using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.DonorSearchCard;
 using EleventhProject.Server.Application.Models.User;
+using EleventhProject.Server.Infrastructure.Entities.DonationHistory;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -13,22 +15,22 @@ public class DonorSearchCardRepository : IDonorSearchRepository
     {
         _context = context;
     }
-    public IQueryable<DonorSearchCardModel> GetDonorSearchCard(int donorSearchCardId)
+    public IQueryable<DonationHistoryEntity> GetDonorSearchCard(int donorSearchCardId)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<DonorSearchCardModel> GetDonorSearchCard()
+    public IQueryable<DonationHistoryEntity> GetDonorSearchCard()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<DonorSearchCardModel> GetAllDonorSearchCards()
+    public IQueryable<DonationHistoryEntity> GetAllDonorSearchCards()
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> CreateDonorSearchCard(DonorSearchCardModel donorSearchCard)
+    public Task<DonationHistoryEntity> CreateDonorSearchCard(DonorSearchCardModel donorSearchCard)
     {
         throw new NotImplementedException();
     }

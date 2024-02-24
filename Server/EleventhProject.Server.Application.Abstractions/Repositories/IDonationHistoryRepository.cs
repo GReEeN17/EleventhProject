@@ -1,14 +1,15 @@
 using EleventhProject.Server.Application.Models.DonationHistory;
+using EleventhProject.Server.Infrastructure.Entities.DonationHistory;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IDonationHistoryRepository
 {
-    IQueryable<DonationHistoryModel> GetDonationHistory(int donationHistoryId);
-    IQueryable<DonationHistoryModel> GetDonationHistory();
-    IQueryable<DonationHistoryModel> GetAllDonationHistories();
+    IQueryable<DonationHistoryEntity> GetDonationHistory(int donationHistoryId);
+    IQueryable<DonationHistoryEntity> GetDonationHistory();
+    IQueryable<DonationHistoryEntity> GetAllDonationHistories();
     
-    Task<int> CreateDonationHistory(DonationHistoryModel donationHistory);
+    Task<DonationHistoryEntity> CreateDonationHistory(DonationHistoryModel donationHistory);
     Task CreateRangeDonationHistories(IEnumerable<DonationHistoryModel> donationHistories);
 
     Task DeleteDonationHistory(int donationHistoryId);

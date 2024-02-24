@@ -1,14 +1,15 @@
 using EleventhProject.Server.Application.Models.User;
+using EleventhProject.Server.Infrastructure.Entities.User;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IUserRepository
 {
-    IQueryable<UserModel> GetUser(int userId);
-    IQueryable<UserModel> GetUser();
-    IQueryable<UserModel> GetAllUsers();
+    IQueryable<UserEntity> GetUser(int userId);
+    IQueryable<UserEntity> GetUser();
+    IQueryable<UserEntity> GetAllUsers();
     
-    Task<int> CreateUser(UserModel user);
+    Task<UserEntity> CreateUser(UserModel user);
     Task CreateRangeUsers(IEnumerable<UserModel> users);
 
     Task DeleteUser(int userId);

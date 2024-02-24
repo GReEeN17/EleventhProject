@@ -1,5 +1,6 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.Breed;
+using EleventhProject.Server.Infrastructure.Entities.Breed;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -11,22 +12,22 @@ public class BreedRepository : IBreedRepository
     {
         _context = context;
     }
-    public IQueryable<BreedModel> GetBreed(int breedId)
+    public IQueryable<BreedEntity> GetBreed(int breedId)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<BreedModel> GetBreed()
+    public IQueryable<BreedEntity> GetBreed()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<BreedModel> GetAllBreeds()
+    public IQueryable<BreedEntity> GetAllBreeds()
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> CreateBreed(BreedModel breed)
+    public Task<BreedEntity> CreateBreed(BreedModel breed)
     {
         throw new NotImplementedException();
     }

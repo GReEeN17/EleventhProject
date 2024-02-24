@@ -1,14 +1,15 @@
 using EleventhProject.Server.Application.Models.Pet;
+using EleventhProject.Server.Infrastructure.Entities.Pet;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IPetRepository
 {
-    IQueryable<PetModel> GetPet(int petId);
-    IQueryable<PetModel> GetPet();
-    IQueryable<PetModel> GetAllPets();
+    IQueryable<PetEntity> GetPet(int petId);
+    IQueryable<PetEntity> GetPet();
+    IQueryable<PetEntity> GetAllPets();
     
-    Task<int> CreatePet(PetModel pet);
+    Task<PetEntity> CreatePet(PetModel pet);
     Task CreateRangePets(IEnumerable<PetModel> pets);
 
     Task DeletePet(int petId);

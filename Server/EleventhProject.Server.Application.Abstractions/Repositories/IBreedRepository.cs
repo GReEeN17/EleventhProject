@@ -1,14 +1,15 @@
 using EleventhProject.Server.Application.Models.Breed;
+using EleventhProject.Server.Infrastructure.Entities.Breed;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IBreedRepository
 {
-    IQueryable<BreedModel> GetBreed(int breedId);
-    IQueryable<BreedModel> GetBreed();
-    IQueryable<BreedModel> GetAllBreeds();
+    IQueryable<BreedEntity> GetBreed(int breedId);
+    IQueryable<BreedEntity> GetBreed();
+    IQueryable<BreedEntity> GetAllBreeds();
     
-    Task<int> CreateBreed(BreedModel breed);
+    Task<BreedEntity> CreateBreed(BreedModel breed);
     Task CreateRangeBreeds(IEnumerable<BreedModel> breeds);
 
     Task DeleteBreed(int breedId);

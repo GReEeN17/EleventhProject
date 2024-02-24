@@ -1,14 +1,15 @@
 using EleventhProject.Server.Application.Models.City;
+using EleventhProject.Server.Infrastructure.Entities.City;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface ICityRepository
 {
-    IQueryable<CityModel> GetCity(int cityId);
-    IQueryable<CityModel> GetCity();
-    IQueryable<CityModel> GetAllCities();
+    IQueryable<CityEntity> GetCity(int cityId);
+    IQueryable<CityEntity> GetCity();
+    IQueryable<CityEntity> GetAllCities();
     
-    Task<int> CreateCity(CityModel city);
+    Task<CityEntity> CreateCity(CityModel city);
     Task CreateRangeCities(IEnumerable<CityModel> cities);
 
     Task DeleteCity(int cityId);

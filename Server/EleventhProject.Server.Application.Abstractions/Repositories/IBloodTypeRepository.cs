@@ -1,14 +1,15 @@
 using EleventhProject.Server.Application.Models.BloodType;
+using EleventhProject.Server.Infrastructure.Entities.BloodType;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IBloodTypeRepository
 {
-    IQueryable<BloodTypeModel> GetBloodType(int bloodTypeId);
-    IQueryable<BloodTypeModel> GetBloodType();
-    IQueryable<BloodTypeModel> GetAllBloodTypes();
+    IQueryable<BloodTypeEntity> GetBloodType(int bloodTypeId);
+    IQueryable<BloodTypeEntity> GetBloodType();
+    IQueryable<BloodTypeEntity> GetAllBloodTypes();
     
-    Task<BloodTypeModel> CreateBloodType(BloodTypeModel bloodType);
+    Task<BloodTypeEntity> CreateBloodType(BloodTypeModel bloodType);
     Task CreateRangeBloodTypes(IEnumerable<BloodTypeModel> bloodTypes);
 
     Task DeleteBloodType(int bloodTypeId);

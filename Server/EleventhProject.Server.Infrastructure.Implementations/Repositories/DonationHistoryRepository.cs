@@ -1,6 +1,7 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.Pet;
+using EleventhProject.Server.Infrastructure.Entities.DonationHistory;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -12,22 +13,22 @@ public class DonationHistoryRepository : IDonationHistoryRepository
     {
         _context = context;
     }
-    public IQueryable<DonationHistoryModel> GetDonationHistory(int donationHistoryId)
+    public IQueryable<DonationHistoryEntity> GetDonationHistory(int donationHistoryId)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<DonationHistoryModel> GetDonationHistory()
+    public IQueryable<DonationHistoryEntity> GetDonationHistory()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<DonationHistoryModel> GetAllDonationHistories()
+    public IQueryable<DonationHistoryEntity> GetAllDonationHistories()
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> CreateDonationHistory(DonationHistoryModel donationHistory)
+    public Task<DonationHistoryEntity> CreateDonationHistory(DonationHistoryModel donationHistory)
     {
         throw new NotImplementedException();
     }

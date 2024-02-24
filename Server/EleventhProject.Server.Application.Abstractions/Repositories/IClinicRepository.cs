@@ -1,15 +1,16 @@
 using EleventhProject.Server.Application.Models.Clinic;
+using EleventhProject.Server.Infrastructure.Entities.Clinic;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IClinicRepository
 {
-    IQueryable<ClinicModel> GetClinic(int breedId);
-    IQueryable<ClinicModel> GetClinic();
-    IQueryable<ClinicModel> GetAllClinics();
-    IQueryable<ClinicModel> GetAllClinics(int cityId);
+    IQueryable<ClinicEntity> GetClinic(int breedId);
+    IQueryable<ClinicEntity> GetClinic();
+    IQueryable<ClinicEntity> GetAllClinics();
+    IQueryable<ClinicEntity> GetAllClinics(int cityId);
     
-    Task<int> CreateClinic(ClinicModel clinic);
+    Task<ClinicEntity> CreateClinic(ClinicModel clinic);
     Task CreateRangeClinics(IEnumerable<ClinicModel> clinics);
 
     Task DeleteClinic(int clinicId);

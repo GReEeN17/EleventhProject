@@ -1,5 +1,6 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.City;
+using EleventhProject.Server.Infrastructure.Entities.City;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -11,22 +12,22 @@ public class CityRepository : ICityRepository
     {
         _context = context;
     }
-    public IQueryable<CityModel> GetCity(int cityId)
+    public IQueryable<CityEntity> GetCity(int cityId)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<CityModel> GetCity()
+    public IQueryable<CityEntity> GetCity()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<CityModel> GetAllCities()
+    public IQueryable<CityEntity> GetAllCities()
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> CreateCity(CityModel city)
+    public Task<CityEntity> CreateCity(CityModel city)
     {
         throw new NotImplementedException();
     }

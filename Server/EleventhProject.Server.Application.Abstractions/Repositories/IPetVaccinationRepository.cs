@@ -1,14 +1,15 @@
 using EleventhProject.Server.Application.Models.PetVaccination;
+using EleventhProject.Server.Infrastructure.Entities.PetVaccination;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IPetVaccinationRepository
 {
-    IQueryable<PetVaccinationModel> GetPetVaccination(int petVaccinationId);
-    IQueryable<PetVaccinationModel> GetPetVaccination();
-    IQueryable<PetVaccinationModel> GetAllPetVaccinations();
+    IQueryable<PetVaccinationEntity> GetPetVaccination(int petVaccinationId);
+    IQueryable<PetVaccinationEntity> GetPetVaccination();
+    IQueryable<PetVaccinationEntity> GetAllPetVaccinations();
     
-    Task<int> CreatePetVaccination(PetVaccinationModel petVaccination);
+    Task<PetVaccinationEntity> CreatePetVaccination(PetVaccinationModel petVaccination);
     Task CreateRangePetVaccinations(IEnumerable<PetVaccinationModel> petVaccinations);
 
     Task DeletePetVaccination(int petVaccinationId);

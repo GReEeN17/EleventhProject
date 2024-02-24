@@ -4,6 +4,7 @@ using EleventhProject.Server.Application.Models.Breed;
 using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Application.Models.PetType;
 using EleventhProject.Server.Application.Models.User;
+using EleventhProject.Server.Infrastructure.Entities.Pet;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -15,22 +16,22 @@ public class PetRepository : IPetRepository
     {
         _context = context;
     }
-    public IQueryable<PetModel> GetPet(int petId)
+    public IQueryable<PetEntity> GetPet(int petId)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<PetModel> GetPet()
+    public IQueryable<PetEntity> GetPet()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<PetModel> GetAllPets()
+    public IQueryable<PetEntity> GetAllPets()
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> CreatePet(PetModel pet)
+    public Task<PetEntity> CreatePet(PetModel pet)
     {
         throw new NotImplementedException();
     }

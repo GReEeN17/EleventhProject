@@ -1,5 +1,6 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.BloodType;
+using EleventhProject.Server.Infrastructure.Entities.BloodType;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -12,22 +13,22 @@ public class BloodTypeRepository : IBloodTypeRepository
         _context = context;
     }
 
-    public IQueryable<BloodTypeModel> GetBloodType(int bloodTypeId)
+    public IQueryable<BloodTypeEntity> GetBloodType(int bloodTypeId)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<BloodTypeModel> GetBloodType()
+    public IQueryable<BloodTypeEntity> GetBloodType()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<BloodTypeModel> GetAllBloodTypes()
+    public IQueryable<BloodTypeEntity> GetAllBloodTypes()
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> CreateBloodType(BloodTypeModel bloodType)
+    public Task<BloodTypeEntity> CreateBloodType(BloodTypeModel bloodType)
     {
         throw new NotImplementedException();
     }

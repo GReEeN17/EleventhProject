@@ -1,6 +1,7 @@
 using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Models.City;
 using EleventhProject.Server.Application.Models.User;
+using EleventhProject.Server.Infrastructure.Entities.User;
 
 namespace EleventhProject.Server.Infrastructure.Implementations.Repositories;
 
@@ -12,22 +13,22 @@ public class UserRepository : IUserRepository
     {
         _context = context;
     }
-    public IQueryable<UserModel> GetUser(int userId)
+    public IQueryable<UserEntity> GetUser(int userId)
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<UserModel> GetUser()
+    public IQueryable<UserEntity> GetUser()
     {
         throw new NotImplementedException();
     }
 
-    public IQueryable<UserModel> GetAllUsers()
+    public IQueryable<UserEntity> GetAllUsers()
     {
         throw new NotImplementedException();
     }
 
-    public Task<int> CreateUser(UserModel user)
+    public Task<UserEntity> CreateUser(UserModel user)
     {
         throw new NotImplementedException();
     }

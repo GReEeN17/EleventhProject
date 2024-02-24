@@ -1,14 +1,15 @@
 using EleventhProject.Server.Application.Models.VaccinationDict;
+using EleventhProject.Server.Infrastructure.Entities.VaccinationDict;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IVaccinationDictRepository
 {
-    IQueryable<VaccinationDictModel> GetVaccinationDict(int vaccinationDictId);
-    IQueryable<VaccinationDictModel> GetVaccinationDict();
-    IQueryable<VaccinationDictModel> GetAllVaccinationDicts();
+    IQueryable<VaccinationDictEntity> GetVaccinationDict(int vaccinationDictId);
+    IQueryable<VaccinationDictEntity> GetVaccinationDict();
+    IQueryable<VaccinationDictEntity> GetAllVaccinationDicts();
     
-    Task<int> CreateVaccinationDict(VaccinationDictModel vaccinationDict);
+    Task<VaccinationDictEntity> CreateVaccinationDict(VaccinationDictModel vaccinationDict);
     Task CreateRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts);
 
     Task DeleteVaccinationDict(int vaccinationDictId);

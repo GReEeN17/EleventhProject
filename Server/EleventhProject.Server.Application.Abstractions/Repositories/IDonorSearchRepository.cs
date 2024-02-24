@@ -1,14 +1,16 @@
+using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.DonorSearchCard;
+using EleventhProject.Server.Infrastructure.Entities.DonationHistory;
 
 namespace EleventhProject.Server.Application.Abstractions.Repositories;
 
 public interface IDonorSearchRepository
 {
-    IQueryable<DonorSearchCardModel> GetDonorSearchCard(int donorSearchCardId);
-    IQueryable<DonorSearchCardModel> GetDonorSearchCard();
-    IQueryable<DonorSearchCardModel> GetAllDonorSearchCards();
+    IQueryable<DonationHistoryEntity> GetDonorSearchCard(int donorSearchCardId);
+    IQueryable<DonationHistoryEntity> GetDonorSearchCard();
+    IQueryable<DonationHistoryEntity> GetAllDonorSearchCards();
     
-    Task<int> CreateDonorSearchCard(DonorSearchCardModel donorSearchCard);
+    Task<DonationHistoryEntity> CreateDonorSearchCard(DonorSearchCardModel donorSearchCard);
     Task CreateRangeDonorSearchCard(IEnumerable<DonorSearchCardModel> donorSearchCards);
 
     Task DeleteDonorSearchCard(int donorSearchCardId);
