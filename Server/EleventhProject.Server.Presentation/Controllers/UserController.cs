@@ -26,12 +26,11 @@ public class UserController(IUserService userService) : BaseController
     }
     
     [HttpPost("user/createUser")]
-    public async Task<IActionResult> CreateUser(int cityId, string username, string password, 
-        long phoneNumber, string surname, string name, string middleName)
+    public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
     {
         try
         {
-            var user = await userService.CreateUser(cityId, username, password, phoneNumber, surname, name, middleName);
+            var user = await userService.CreateUser(request.CityId, request.Username, request.Password, request.PhoneNumber, request.Surname, request.Name, request.MiddleName);
             if (user == null)
             {
                 return NotFound();
@@ -43,5 +42,16 @@ public class UserController(IUserService userService) : BaseController
         {
             return StatusCode(500, $"Internal server error: {ex.Message}");
         }
+    }
+    
+    public class CreateUserRequest
+    {
+        public int CityId { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public long PhoneNumber { get; set; }
+        public string Surname { get; set; }
+        public string Name { get; set; }
+        public string MiddleName { get; set; }
     }
 }
