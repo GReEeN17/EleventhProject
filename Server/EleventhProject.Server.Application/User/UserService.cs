@@ -28,15 +28,17 @@ public class UserService : IUserService
     private readonly IUserRepository _userRepository;
     private readonly ICityService _cityService;
     private readonly IMapper _mapper;
+    private readonly IJwtProvider _jwtProvider;
 
     public UserService(IPetService petService, IDonorSearchCardService donorSearchCardService, IUserRepository userRepository,
-    IMapper mapper, ICityService cityService)
+    IMapper mapper, ICityService cityService, IJwtProvider jwtProvider)
     {
         _petService = petService;
         _donorSearchCardService = donorSearchCardService;
         _userRepository = userRepository;
         _mapper = mapper;
         _cityService = cityService;
+        _jwtProvider = jwtProvider;
     }
     
     public Task<string> GetUserById(int id)
@@ -58,7 +60,17 @@ public class UserService : IUserService
 
     public Task<string> Login(string username, string password)
     {
-        throw new NotImplementedException();
+        var entity = _userRepository.GetUser().Where(user => user.UserName == username);
+        var model = _mapper.Map<UserModel>(entity);
+
+        if (model.Password != password)
+        {
+            throw new Exception();
+        }
+
+        var token = _jwtProvider.GenerateToken(model);
+
+        return Task.FromResult(token);
     }
 
     public Task<string> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
