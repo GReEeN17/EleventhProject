@@ -9,5 +9,5 @@ public interface IClinicService
 
     ClinicModel GetClinicById(int clinicId);
 
-    IEnumerable<ClinicModel> GetAllClinics();
+    IEnumerable<ClinicModel> GetAllClinics(int? cityId);
 }
