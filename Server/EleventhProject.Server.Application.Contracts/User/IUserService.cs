@@ -15,7 +15,7 @@ public interface IUserService
     Task<string> GetUserById(int id);
 
     Task<string> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
-        string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate);
+        string middleName);
     
     Task<string> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname, string name,
         string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate);
