@@ -67,8 +67,8 @@ public class CityRepository : ICityRepository
         await Task.Run(() => _context.Set<CityEntity>().UpdateRange(cities));
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }

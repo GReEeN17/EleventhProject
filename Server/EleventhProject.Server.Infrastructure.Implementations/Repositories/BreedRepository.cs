@@ -66,8 +66,8 @@ public class BreedRepository : IBreedRepository
         await Task.Run(() => _context.Set<BreedEntity>().UpdateRange(breeds));
     }
 
-    public Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _context.SaveChangesAsync();
     }
 }
