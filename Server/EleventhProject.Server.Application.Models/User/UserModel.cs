@@ -5,6 +5,16 @@ namespace EleventhProject.Server.Application.Models.User;
 
 public class UserModel : Model
 {
+    public UserModel(CityModel city, string userName, string password, long phoneNumber, string surname,
+        string name, string middleName)
+    {
+        City = city;
+        UserName = userName;
+        Password = password;
+        Surname = surname;
+        Name = name;
+        MiddleName = middleName;
+    }
     public CityModel City { get; set; }
     public string UserName { get; set; }
     public string Password { get; set; }

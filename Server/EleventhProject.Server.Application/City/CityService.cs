@@ -1,22 +1,42 @@
+using System.Text.Json;
+using AutoMapper;
+using EleventhProject.Server.Application.Abstractions.Repositories;
 using EleventhProject.Server.Application.Contracts.City;
+using EleventhProject.Server.Application.Models.BloodType;
 using EleventhProject.Server.Application.Models.City;
+using EleventhProject.Server.Infrastructure.Entities.City;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EleventhProject.Server.Application.City;
 
 public class CityService : ICityService
 {
-    public Task<IActionResult> CreateCity(string title)
+    private readonly ICityRepository _cityRepository;
+    private readonly IMapper _mapper;
+
+    public CityService(ICityRepository cityRepository, IMapper mapper)
     {
-        throw new NotImplementedException();
+        _cityRepository = cityRepository;
+        _mapper = mapper;
     }
 
-    public Task<IActionResult> GetCityById(int cityId)
+    public Task<string> CreateCity(string title)
     {
-        throw new NotImplementedException();
+        var entity = _mapper.Map<CityEntity>(new CityModel(title));
+        var result = _cityRepository.CreateCity(entity);
+
+        return Task.FromResult(JsonSerializer.Serialize(result));
     }
 
-    public IAsyncEnumerable<IActionResult> GetAllCities()
+    public Task<CityModel> GetCityById(int cityId)
+    {
+        var entity = _cityRepository.GetCity(cityId);
+        var cityModel = _mapper.Map<CityModel>(entity);
+        
+        return Task.FromResult(cityModel);
+    }
+
+    public string GetAllCities()
     {
         throw new NotImplementedException();
     }

@@ -5,9 +5,11 @@ using EleventhProject.Server.Application.Contracts.City;
 using EleventhProject.Server.Application.Contracts.DonorSearchCard;
 using EleventhProject.Server.Application.Contracts.Pet;
 using EleventhProject.Server.Application.Contracts.User;
+using EleventhProject.Server.Application.Models.BloodType;
 using EleventhProject.Server.Application.Models.DonationHistory;
 using EleventhProject.Server.Application.Models.Pet;
 using EleventhProject.Server.Application.Models.User;
+using EleventhProject.Server.Infrastructure.Entities.BloodType;
 using EleventhProject.Server.Infrastructure.Entities.User;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,12 +56,15 @@ public class UserService : IUserService
     }
 
     public Task<string> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
-        string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate)
+        string middleName)
     {
-        var entity = _mapper.Map<BloodTypeEntity>(new BloodTypeModel(title));
-        var result = _bloodTypeRepository.CreateBloodType(entity);
+        var cityModel = _cityService.GetCityById(cityId).Result;
+        var userModel = new UserModel(cityModel, username, password, phoneNumber, surname, name, middleName);
+        var entity = _mapper.Map<UserEntity>(userModel);
+
+        var result = _userRepository.CreateUser(entity);
         
-        var entity = _mapper.Map<UserEntity>new UserModel()
+        return Task.FromResult(JsonSerializer.Serialize(result));
     }
 
     public Task<string> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname,
