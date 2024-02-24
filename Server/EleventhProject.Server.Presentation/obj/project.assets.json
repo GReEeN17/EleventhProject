@@ -3193,6 +3193,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "AutoMapper": "13.0.1",
           "EleventhProject.Server.Application.Abstractions": "1.0.0",
           "EleventhProject.Server.Application.Contracts": "1.0.0"
         },
@@ -3207,7 +3208,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
-          "EleventhProject.Server.Application.Models": "1.0.0"
+          "EleventhProject.Server.Application.Models": "1.0.0",
+          "EleventhProject.Server.Infrastructure.Entities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/EleventhProject.Server.Application.Abstractions.dll": {}
@@ -3221,7 +3223,8 @@
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "EleventhProject.Server.Application.Abstractions": "1.0.0",
-          "EleventhProject.Server.Application.Models": "1.0.0"
+          "EleventhProject.Server.Application.Models": "1.0.0",
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5"
         },
         "compile": {
           "bin/placeholder/EleventhProject.Server.Application.Contracts.dll": {}
@@ -9604,6 +9607,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {

@@ -9,7 +9,7 @@ public class PetService : IPetService
 {
     public Task<IActionResult> CreatePet(UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight)
     {
-        
+        throw new NotImplementedException();
     }
 
     public Task<IActionResult> GetPetById(int petId)
@@ -23,8 +23,8 @@ public class PetService : IPetService
         throw new NotImplementedException();
     }
 
-    public Task<string> GetAllPetsByUserId(int userId)
+    public IAsyncEnumerable<IActionResult> GetAllPetsByUserId(int userId)
     {
-        
+        throw new NotImplementedException();
     }
 }

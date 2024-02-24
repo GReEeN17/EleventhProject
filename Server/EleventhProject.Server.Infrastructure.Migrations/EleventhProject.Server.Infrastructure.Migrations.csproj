@@ -18,4 +18,8 @@
         <ProjectReference Include="..\EleventhProject.Server.Infrastructure.Implementations\EleventhProject.Server.Infrastructure.Implementations.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Migrations\20240223220434_initial.Designer.cs" />
+    </ItemGroup>
+
 </Project>
