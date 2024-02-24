@@ -19,6 +19,7 @@ using EleventhProject.Server.Application.Contracts.User;
 using EleventhProject.Server.Application.Contracts.VaccinationDict;
 using EleventhProject.Server.Application.DonationHistory;
 using EleventhProject.Server.Application.DonorSearchCard;
+using EleventhProject.Server.Application.Middlewares;
 using EleventhProject.Server.Application.Pet;
 using EleventhProject.Server.Application.PetType;
 using EleventhProject.Server.Application.PetVaccination;
@@ -88,6 +89,8 @@ public class Startup
 
         services.AddAutoMapper(typeof(Startup));
 
+        services.Configure<JwtOptions>(_configuration.GetSection(nameof(JwtOptions)));
+
         services.AddTransient<IBloodTypeService, BloodTypeService>();
         services.AddTransient<IBreedService, BreedService>();
         services.AddTransient<ICityService, CityService>();
@@ -99,6 +102,7 @@ public class Startup
         services.AddTransient<IPetVaccinationService, PetVaccinationService>();
         services.AddTransient<IUserService, UserService>();
         services.AddTransient<IVaccinationDictService, VaccinationDictService>();
+        services.AddScoped<IJwtProvider, JwtProvider>();
         services.AddScoped<IBloodTypeRepository, BloodTypeRepository>();
         services.AddScoped<IBreedRepository, BreedRepository>();
         services.AddScoped<ICityRepository, CityRepository>();
