@@ -9,16 +9,16 @@ public interface IPetVaccinationRepository
     IQueryable<PetVaccinationEntity> GetPetVaccination();
     IQueryable<PetVaccinationEntity> GetAllPetVaccinations();
     
-    Task<PetVaccinationEntity> CreatePetVaccination(PetVaccinationModel petVaccination);
-    Task CreateRangePetVaccinations(IEnumerable<PetVaccinationModel> petVaccinations);
+    Task<PetVaccinationEntity> CreatePetVaccination(PetVaccinationEntity petVaccination);
+    Task CreateRangePetVaccinations(IEnumerable<PetVaccinationEntity> petVaccinations);
 
     Task DeletePetVaccination(int petVaccinationId);
 
-    Task RemovePetVaccination(PetVaccinationModel petVaccination);
-    Task RemoveRangePetVaccinations(IEnumerable<PetVaccinationModel> petVaccinations);
+    Task RemovePetVaccination(PetVaccinationEntity petVaccination);
+    Task RemoveRangePetVaccinations(IEnumerable<PetVaccinationEntity> petVaccinations);
 
-    Task UpdatePetVaccination(PetVaccinationModel petVaccination);
-    Task UpdateRangePetVaccinations(IEnumerable<PetVaccinationModel> petVaccinations);
+    Task UpdatePetVaccination(PetVaccinationEntity petVaccination);
+    Task UpdateRangePetVaccinations(IEnumerable<PetVaccinationEntity> petVaccinations);
     
     Task<int> SaveChangesAsync();
 }

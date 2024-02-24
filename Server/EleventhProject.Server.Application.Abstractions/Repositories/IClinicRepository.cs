@@ -10,16 +10,16 @@ public interface IClinicRepository
     IQueryable<ClinicEntity> GetAllClinics();
     IQueryable<ClinicEntity> GetAllClinics(int cityId);
     
-    Task<ClinicEntity> CreateClinic(ClinicModel clinic);
-    Task CreateRangeClinics(IEnumerable<ClinicModel> clinics);
+    Task<ClinicEntity> CreateClinic(ClinicEntity clinic);
+    Task CreateRangeClinics(IEnumerable<ClinicEntity> clinics);
 
     Task DeleteClinic(int clinicId);
 
-    Task RemoveClinic(ClinicModel clinic);
-    Task RemoveRangeClinics(IEnumerable<ClinicModel> clinics);
+    Task RemoveClinic(ClinicEntity clinic);
+    Task RemoveRangeClinics(IEnumerable<ClinicEntity> clinics);
 
-    Task UpdateClinic(ClinicModel clinic);
-    Task UpdateRangeClinics(IEnumerable<ClinicModel> clinics);
+    Task UpdateClinic(ClinicEntity clinic);
+    Task UpdateRangeClinics(IEnumerable<ClinicEntity> clinics);
     
     Task<int> SaveChangesAsync();
 }

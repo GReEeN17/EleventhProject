@@ -9,16 +9,16 @@ public interface IBreedRepository
     IQueryable<BreedEntity> GetBreed();
     IQueryable<BreedEntity> GetAllBreeds();
     
-    Task<BreedEntity> CreateBreed(BreedModel breed);
-    Task CreateRangeBreeds(IEnumerable<BreedModel> breeds);
+    Task<BreedEntity> CreateBreed(BreedEntity breed);
+    Task CreateRangeBreeds(IEnumerable<BreedEntity> breeds);
 
     Task DeleteBreed(int breedId);
 
-    Task RemoveBreed(BreedModel breed);
-    Task RemoveRangeBreeds(IEnumerable<BreedModel> breeds);
+    Task RemoveBreed(BreedEntity breed);
+    Task RemoveRangeBreeds(IEnumerable<BreedEntity> breeds);
 
-    Task UpdateBreed(BreedModel breed);
-    Task UpdateRangeBreeds(IEnumerable<BreedModel> breeds);
+    Task UpdateBreed(BreedEntity breed);
+    Task UpdateRangeBreeds(IEnumerable<BreedEntity> breeds);
     
     Task<int> SaveChangesAsync();
 }

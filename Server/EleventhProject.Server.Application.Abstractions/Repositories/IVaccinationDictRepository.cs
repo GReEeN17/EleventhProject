@@ -9,16 +9,16 @@ public interface IVaccinationDictRepository
     IQueryable<VaccinationDictEntity> GetVaccinationDict();
     IQueryable<VaccinationDictEntity> GetAllVaccinationDicts();
     
-    Task<VaccinationDictEntity> CreateVaccinationDict(VaccinationDictModel vaccinationDict);
-    Task CreateRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts);
+    Task<VaccinationDictEntity> CreateVaccinationDict(VaccinationDictEntity vaccinationDict);
+    Task CreateRangeVaccinationDicts(IEnumerable<VaccinationDictEntity> vaccinationDicts);
 
     Task DeleteVaccinationDict(int vaccinationDictId);
 
-    Task RemoveVaccinationDict(VaccinationDictModel vaccinationDict);
-    Task RemoveRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts);
+    Task RemoveVaccinationDict(VaccinationDictEntity vaccinationDict);
+    Task RemoveRangeVaccinationDicts(IEnumerable<VaccinationDictEntity> vaccinationDicts);
 
-    Task UpdateVaccinationDict(VaccinationDictModel vaccinationDict);
-    Task UpdateRangeVaccinationDicts(IEnumerable<VaccinationDictModel> vaccinationDicts);
+    Task UpdateVaccinationDict(VaccinationDictEntity vaccinationDict);
+    Task UpdateRangeVaccinationDicts(IEnumerable<VaccinationDictEntity> vaccinationDicts);
     
     Task<int> SaveChangesAsync();
 }

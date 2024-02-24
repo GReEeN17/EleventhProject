@@ -9,16 +9,16 @@ public interface IBloodTypeRepository
     IQueryable<BloodTypeEntity> GetBloodType();
     IQueryable<BloodTypeEntity> GetAllBloodTypes();
     
-    Task<BloodTypeEntity> CreateBloodType(BloodTypeModel bloodType);
-    Task CreateRangeBloodTypes(IEnumerable<BloodTypeModel> bloodTypes);
+    Task<BloodTypeEntity> CreateBloodType(BloodTypeEntity bloodType);
+    Task CreateRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes);
 
     Task DeleteBloodType(int bloodTypeId);
 
     Task RemoveBloodType(BloodTypeModel bloodType);
-    Task RemoveRangeBloodTypes(IEnumerable<BloodTypeModel> bloodTypes);
+    Task RemoveRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes);
 
     Task UpdateBloodType(BloodTypeModel bloodType);
-    Task UpdateRangeBloodTypes(IEnumerable<BloodTypeModel> bloodTypes);
+    Task UpdateRangeBloodTypes(IEnumerable<BloodTypeEntity> bloodTypes);
     
     Task<int> SaveChangesAsync();
 }

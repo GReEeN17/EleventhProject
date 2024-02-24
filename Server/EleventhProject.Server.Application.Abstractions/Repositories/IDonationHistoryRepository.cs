@@ -9,16 +9,16 @@ public interface IDonationHistoryRepository
     IQueryable<DonationHistoryEntity> GetDonationHistory();
     IQueryable<DonationHistoryEntity> GetAllDonationHistories();
     
-    Task<DonationHistoryEntity> CreateDonationHistory(DonationHistoryModel donationHistory);
-    Task CreateRangeDonationHistories(IEnumerable<DonationHistoryModel> donationHistories);
+    Task<DonationHistoryEntity> CreateDonationHistory(DonationHistoryEntity donationHistory);
+    Task CreateRangeDonationHistories(IEnumerable<DonationHistoryEntity> donationHistories);
 
     Task DeleteDonationHistory(int donationHistoryId);
 
-    Task RemoveDonationHistory(DonationHistoryModel donationHistory);
-    Task RemoveRangeDonationHistories(IEnumerable<DonationHistoryModel> donationHistories);
+    Task RemoveDonationHistory(DonationHistoryEntity donationHistory);
+    Task RemoveRangeDonationHistories(IEnumerable<DonationHistoryEntity> donationHistories);
 
-    Task UpdateDonationHistory(DonationHistoryModel donationHistory);
-    Task UpdateRangeDonationHistories(IEnumerable<DonationHistoryModel> donationHistories);
+    Task UpdateDonationHistory(DonationHistoryEntity donationHistory);
+    Task UpdateRangeDonationHistories(IEnumerable<DonationHistoryEntity> donationHistories);
     
     Task<int> SaveChangesAsync();
 }

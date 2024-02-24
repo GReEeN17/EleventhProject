@@ -9,16 +9,16 @@ public interface IUserRepository
     IQueryable<UserEntity> GetUser();
     IQueryable<UserEntity> GetAllUsers();
     
-    Task<UserEntity> CreateUser(UserModel user);
-    Task CreateRangeUsers(IEnumerable<UserModel> users);
+    Task<UserEntity> CreateUser(UserEntity user);
+    Task CreateRangeUsers(IEnumerable<UserEntity> users);
 
     Task DeleteUser(int userId);
 
-    Task RemoveUser(UserModel user);
-    Task RemoveRangeUsers(IEnumerable<UserModel> users);
+    Task RemoveUser(UserEntity user);
+    Task RemoveRangeUsers(IEnumerable<UserEntity> users);
 
-    Task UpdateUser(UserModel user);
-    Task UpdateRangeUsers(IEnumerable<UserModel> users);
+    Task UpdateUser(UserEntity user);
+    Task UpdateRangeUsers(IEnumerable<UserEntity> users);
     
     Task<int> SaveChangesAsync();
 }

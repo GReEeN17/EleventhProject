@@ -9,16 +9,16 @@ public interface IPetRepository
     IQueryable<PetEntity> GetPet();
     IQueryable<PetEntity> GetAllPets();
     
-    Task<PetEntity> CreatePet(PetModel pet);
-    Task CreateRangePets(IEnumerable<PetModel> pets);
+    Task<PetEntity> CreatePet(PetEntity pet);
+    Task CreateRangePets(IEnumerable<PetEntity> pets);
 
     Task DeletePet(int petId);
 
-    Task RemovePet(PetModel pet);
-    Task RemoveRangePets(IEnumerable<PetModel> pets);
+    Task RemovePet(PetEntity pet);
+    Task RemoveRangePets(IEnumerable<PetEntity> pets);
 
-    Task UpdatePet(PetModel pet);
-    Task UpdateRangePets(IEnumerable<PetModel> pets);
+    Task UpdatePet(PetEntity pet);
+    Task UpdateRangePets(IEnumerable<PetEntity> pets);
     
     Task<int> SaveChangesAsync();
 }

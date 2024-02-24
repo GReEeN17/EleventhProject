@@ -9,16 +9,16 @@ public interface IPetTypeRepository
     IQueryable<PetTypeEntity> GetPetType();
     IQueryable<PetTypeEntity> GetAllPetTypes();
     
-    Task<PetTypeEntity> CreatePetType(PetTypeModel petType);
-    Task CreateRangePetTypes(IEnumerable<PetTypeModel> petTypes);
+    Task<PetTypeEntity> CreatePetType(PetTypeEntity petType);
+    Task CreateRangePetTypes(IEnumerable<PetTypeEntity> petTypes);
 
     Task DeletePetType(int petTypeId);
 
-    Task RemovePetType(PetTypeModel petType);
-    Task RemoveRangePetTypes(IEnumerable<PetTypeModel> petTypes);
+    Task RemovePetType(PetTypeEntity petType);
+    Task RemoveRangePetTypes(IEnumerable<PetTypeEntity> petTypes);
 
-    Task UpdatePetType(PetTypeModel petType);
-    Task UpdateRangePetTypes(IEnumerable<PetTypeModel> petTypes);
+    Task UpdatePetType(PetTypeEntity petType);
+    Task UpdateRangePetTypes(IEnumerable<PetTypeEntity> petTypes);
     
     Task<int> SaveChangesAsync();
 }
