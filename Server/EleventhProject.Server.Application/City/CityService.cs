@@ -5,17 +5,17 @@ namespace EleventhProject.Server.Application.City;
 
 public class CityService : ICityService
 {
-    public CityModel CreateCity(string title)
+    public Task<CityModel> CreateCity(string title)
     {
         throw new NotImplementedException();
     }
 
-    public CityModel GetCityById(int cityId)
+    public Task<CityModel> GetCityById(int cityId)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<CityModel> GetAllCities()
+    public IAsyncEnumerable<CityModel> GetAllCities()
     {
         throw new NotImplementedException();
     }

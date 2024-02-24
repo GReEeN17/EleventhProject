@@ -15,20 +15,20 @@ public interface IUserService
     IDonorSearchCardService DonorSearchCardService { get; }
     IUserRepository UserRepository { get; }
 
-    UserModel GetUserById(int id);
+    Task<UserModel> GetUserById(int id);
 
-    UserModel CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
+    Task<UserModel> CreateUser(int cityId, string username, string password, long phoneNumber, string surname, string name,
         string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate);
     
-    UserModel UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname, string name,
+    Task<UserModel> UpdateUser(int userId, int cityId, string username, string password, long phoneNumber, string surname, string name,
         string middleName, bool notReadyForDonation, DateTime? AbsenseBeginDate, DateTime? AbsenceEndDate);
 
-    void CreatePet(int userId, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
+    Task CreatePet(int userId, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight);
 
-    IEnumerable<PetModel> GetAllPets(int userId);
+    IAsyncEnumerable<PetModel> GetAllPets(int userId);
 
-    void CreateDonorSearchCard(int userId, int clinicId, string reason, int BloodAmount, DateTime EndDate,
+    Task CreateDonorSearchCard(int userId, int clinicId, string reason, int BloodAmount, DateTime EndDate,
         bool IsUrgent);
 
-    IEnumerable<DonationHistoryModel> GetDonationHistory(int userId);
+    IAsyncEnumerable<DonationHistoryModel> GetDonationHistory(int userId);
 }

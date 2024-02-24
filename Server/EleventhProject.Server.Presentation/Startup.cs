@@ -27,6 +27,9 @@ using EleventhProject.Server.Application.VaccinationDict;
 using EleventhProject.Server.Infrastructure.Entities.User;
 using EleventhProject.Server.Infrastructure.Implementations.DataContext;
 using EleventhProject.Server.Infrastructure.Implementations.Repositories;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
@@ -46,6 +49,22 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = _configuration["Tokens:Issuer"],
+                    ValidateAudience = true,
+                    ValidAudience = _configuration["Tokens:Audience"],
+                    ValidateLifetime = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Tokens:Key"])),
+                    ValidateIssuerSigningKey = true
+                };
+            });
+            
         services.AddControllers(options =>
         {
             options.Conventions.Add(new RouteTokenTransformerConvention(
@@ -96,6 +115,8 @@ public class Startup
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
     {
         app.UseRouting();
+        
+        app.UseAuthentication();
         app.UseAuthorization();
 
         app.UseSwagger();

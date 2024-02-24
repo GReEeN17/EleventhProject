@@ -4,9 +4,9 @@ namespace EleventhProject.Server.Application.Contracts.VaccinationDict;
 
 public interface IVaccinationDictService
 {
-    VaccinationDictModel CreateVaccinationDict(string title);
+    Task<VaccinationDictModel> CreateVaccinationDict(string title);
 
-    VaccinationDictModel GetVaccinationDictById(int vaccinationDictId);
+    Task<VaccinationDictModel> GetVaccinationDictById(int vaccinationDictId);
 
-    IEnumerable<VaccinationDictModel> GetAllVaccinations();
+    IAsyncEnumerable<VaccinationDictModel> GetAllVaccinations();
 }

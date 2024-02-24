@@ -5,17 +5,17 @@ namespace EleventhProject.Server.Application.PetType;
 
 public class PetTypeService : IPetTypeService
 {
-    public PetTypeModel CreatePetType(string title)
+    public Task<PetTypeModel> CreatePetType(string title)
     {
         throw new NotImplementedException();
     }
 
-    public PetTypeModel GetPetTypeById(int petTypeId)
+    public Task<PetTypeModel> GetPetTypeById(int petTypeId)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<PetTypeModel> GetAllPetTypes()
+    public IAsyncEnumerable<PetTypeModel> GetAllPetTypes()
     {
         throw new NotImplementedException();
     }

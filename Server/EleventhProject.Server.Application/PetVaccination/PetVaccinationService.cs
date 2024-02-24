@@ -5,17 +5,17 @@ namespace EleventhProject.Server.Application.PetVaccination;
 
 public class PetVaccinationService : IPetVaccinationService
 {
-    public PetVaccinationModel CreatePetVaccination(int vaccinationId, int petId)
+    public Task<PetVaccinationModel> CreatePetVaccination(int vaccinationId, int petId)
     {
         throw new NotImplementedException();
     }
 
-    public PetVaccinationModel GetPetVaccinationById(int petVaccinationId)
+    public Task<PetVaccinationModel> GetPetVaccinationById(int petVaccinationId)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<PetVaccinationModel> GetAllPetVaccinations()
+    public IAsyncEnumerable<PetVaccinationModel> GetAllPetVaccinations()
     {
         throw new NotImplementedException();
     }

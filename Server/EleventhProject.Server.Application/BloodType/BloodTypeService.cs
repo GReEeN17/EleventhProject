@@ -5,17 +5,17 @@ namespace EleventhProject.Server.Application.BloodType;
 
 public class BloodTypeService : IBloodTypeService
 {
-    public BloodTypeModel CreateBloodType(string title)
+    public Task<BloodTypeModel> CreateBloodType(string title)
     {
         throw new NotImplementedException();
     }
 
-    public BloodTypeModel GetBloodTypeById(int bloodTypeId)
+    public Task<BloodTypeModel> GetBloodTypeById(int bloodTypeId)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<BloodTypeModel> GetAllBloodTypes()
+    public IAsyncEnumerable<BloodTypeModel> GetAllBloodTypes()
     {
         throw new NotImplementedException();
     }

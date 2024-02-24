@@ -4,9 +4,9 @@ namespace EleventhProject.Server.Application.Contracts.PetVaccination;
 
 public interface IPetVaccinationService
 {
-    PetVaccinationModel CreatePetVaccination(int vaccinationId, int petId);
+    Task<PetVaccinationModel> CreatePetVaccination(int vaccinationId, int petId);
 
-    PetVaccinationModel GetPetVaccinationById(int petVaccinationId);
+    Task<PetVaccinationModel> GetPetVaccinationById(int petVaccinationId);
 
-    IEnumerable<PetVaccinationModel> GetAllPetVaccinations();
+    IAsyncEnumerable<PetVaccinationModel> GetAllPetVaccinations();
 }

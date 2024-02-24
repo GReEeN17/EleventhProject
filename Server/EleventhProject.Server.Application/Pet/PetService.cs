@@ -6,23 +6,23 @@ namespace EleventhProject.Server.Application.Pet;
 
 public class PetService : IPetService
 {
-    public PetModel CreatePet(UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight)
+    public Task<PetModel> CreatePet(UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age, int weight)
     {
         throw new NotImplementedException();
     }
 
-    public PetModel GetPetById(int petId)
+    public Task<PetModel> GetPetById(int petId)
     {
         throw new NotImplementedException();
     }
 
-    public PetModel UpdatePet(int petId, UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age,
+    public Task<PetModel> UpdatePet(int petId, UserModel owner, int petTypeId, int breedId, int bloodTypeId, string name, int age,
         int weight)
     {
         throw new NotImplementedException();
     }
 
-    public IEnumerable<PetModel> GetAllPetsByUserId(int userId)
+    public IAsyncEnumerable<PetModel> GetAllPetsByUserId(int userId)
     {
         throw new NotImplementedException();
     }
