@@ -14,9 +14,6 @@
 
 /Client/node_modules/
 /Client/.next/
+/Client/.next
 
-/.idea/inspectionProfiles/Project_Default.xml
-/.idea/EleventhProject.iml
-/.idea/modules.xml
-/.idea/vcs.xml
-/.idea/workspace.xml
+/.idea/

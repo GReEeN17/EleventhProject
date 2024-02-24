@@ -49,7 +49,6 @@
     color: #F0F0F0;
     text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.54);
     font-size: 2rem;
-    font-family: GeneralSans-semibold;
     font-style: normal;
     font-weight: 700;
     line-height: 116%;
@@ -93,7 +92,7 @@
 .BuildInfoSliderItemText {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    margin: 2rem;
     width: 30rem;
     height: 100%;
     padding-left: 1.2rem;
@@ -102,10 +101,9 @@
 }
 
 .BuildInfoSliderItemText h2 {
-    color: #F0F0F0;
+    color: #ffffff;
     text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.54);
     font-size: 1.5rem;
-    font-family: GeneralSans-semibold;
     font-style: normal;
     font-weight: 700;
     line-height: 116%;
@@ -113,15 +111,14 @@
 }
 
 .BuildInfoSliderItemText p {
-    color: #7B1DC6;
+    color: #ea6b6b;
     font-size: 1.125rem;
     font-style: normal;
-    font-family: GeneralSans-semibold;
     font-weight: 700;
     line-height: normal;
 }
 
 .buttonTab.active {
-    background: #7B1DC6;
+    background: #f36c80;
     color: #F0F0F0;
 }

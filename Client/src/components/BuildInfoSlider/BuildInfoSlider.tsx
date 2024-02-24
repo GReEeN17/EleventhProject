@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 
 
 export default function BuildInfoSlider() {
-    const [activeTab, setActiveTab] = useState('Gaming');
+    const [activeTab, setActiveTab] = useState('Польза');
 
     const openTab = (tabName: string) => {
         setActiveTab(tabName);
@@ -16,64 +16,64 @@ export default function BuildInfoSlider() {
         <div className="BuildInfoTabsContainer">
             <div className="BuildInfoTabs">
                 <div className="BuildHeader">
-                    <h1>Build for growth</h1>
+                    <h1>Почему это важно?</h1>
                     <div className="BuildBtns">
-                        <div className={`buttonTab ${activeTab === 'Gaming' ? 'active' : ''}`} onClick={() => openTab('Gaming')}>
-                            <button className="Gaming active">Gaming</button>
+                        <div className={`buttonTab ${activeTab === 'Польза' ? 'active' : ''}`} onClick={() => openTab('Польза')}>
+                            <button className="Gaming active">Польза</button>
                         </div>
-                        <div className={`buttonTab ${activeTab === 'Software' ? 'active' : ''}`} onClick={() => openTab('Software')}>
-                            <button className="Software">Software</button>
+                        <div className={`buttonTab ${activeTab === 'Бонусы' ? 'active' : ''}`} onClick={() => openTab('Бонусы')}>
+                            <button className="Software">Бонусы</button>
                         </div>
-                        <div className={`buttonTab ${activeTab === 'Game coins' ? 'active' : ''}`} onClick={() => openTab('Game coins')}>
-                            <button className="Game coins">Game coins</button>
+                        <div className={`buttonTab ${activeTab === 'Здоровье' ? 'active' : ''}`} onClick={() => openTab('Здоровье')}>
+                            <button className="Здоровье">Здоровье</button>
                         </div>
-                        <div className={`buttonTab ${activeTab === 'Social Media' ? 'active' : ''}`} onClick={() => openTab('Social Media')}>
-                            <button className="Social Media">Social Media</button>
+                        <div className={`buttonTab ${activeTab === 'Обследование' ? 'active' : ''}`} onClick={() => openTab('Обследование')}>
+                            <button className="Обследование">Обследование</button>
                         </div>
                     </div>
                 </div>
                 <div className="InfoTabs">
-                    <div id="Gaming" className="tabcontent" style={{ display: activeTab === 'Gaming' ? 'block' : 'none' }}>
+                    <div id="Польза" className="tabcontent" style={{ display: activeTab === 'Польза' ? 'block' : 'none' }}>
                         <div className="BuildInfoSliderItem">
                             <div className="BuildInfoSliderItemImg">
-                                <Image src="/images/buildTabs/pics2.jpg" width={409} height={279} alt="GamingPic" />
+                                <Image src="/images/buildTabs/photo1.jpg" width={409} height={279} alt="GamingPic" />
                             </div>
                             <div className="BuildInfoSliderItemText">
-                                <h2>Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet, consectetur</h2>
-                                <p>Learn more about Gaming</p>
+                                <h2>Поддержание здорового состояния кровеносной системы</h2>
+                                <p>Пожертвование крови может стимулировать организм к производству новых красных кровяных клеток, что способствует обновлению кровеносной системы и может снизить риск сердечно-сосудистых заболеваний.</p>
                             </div>
                         </div>
                     </div>
-                    <div id="Software" className="tabcontent" style={{ display: activeTab === 'Software' ? 'block' : 'none' }}>
+                    <div id="Бонусы" className="tabcontent" style={{ display: activeTab === 'Бонусы' ? 'block' : 'none' }}>
                         <div className="BuildInfoSliderItem">
                             <div className="BuildInfoSliderItemImg" >
-                                <Image src="/images/buildTabs/pics.jpg" width={409} height={279} alt="GamingPic" />
+                                <Image src="/images/buildTabs/photo2.jpg" width={409} height={279} alt="GamingPic" />
                             </div>
                             <div className="BuildInfoSliderItemText">
-                                <h2>Lore dolor sit amet, consectetur</h2>
-                                <p>Learn more about Software</p>
+                                <h2>Вакцинация</h2>
+                                <p>Донорам начиная со второй донации, бесплатно проводится комплексная ежегодная вакцинация с занесением отметки в паспорт!</p>
                             </div>
                         </div>
                     </div>
-                    <div id="Game coins" className="tabcontent" style={{ display: activeTab === 'Game coins' ? 'block' : 'none' }}>
+                    <div id="Здоровье" className="tabcontent" style={{ display: activeTab === 'Здоровье' ? 'block' : 'none' }}>
                         <div className="BuildInfoSliderItem">
                             <div className="BuildInfoSliderItemImg">
-                                <Image src="/images/buildTabs/pics2.jpg" width={409} height={279} alt="GamingPic" />
+                                <Image src="/images/buildTabs/photo1.jpg" width={409} height={279} alt="Здоровье" />
                             </div>
                             <div className="BuildInfoSliderItemText">
-                                <h2>Lorem ipsum dolor sim dolor sit amet, consectetur</h2>
-                                <p>Learn more about Game coins</p>
+                                <h2>Снижение уровня железа в организме</h2>
+                                <p>Пожертвование крови может помочь снизить уровень железа в крови донора, что может быть полезно для здоровья сердца и общего состояния.</p>
                             </div>
                         </div>
                     </div>
-                    <div id="Social Media" className="tabcontent" style={{ display: activeTab === 'Social Media' ? 'block' : 'none' }}>
+                    <div id="Social Media" className="tabcontent" style={{ display: activeTab === 'Обследование' ? 'block' : 'none' }}>
                         <div className="BuildInfoSliderItem">
                             <div className="BuildInfoSliderItemImg">
-                                <Image src="/images/buildTabs/pics.jpg" width={409} height={279} alt="GamingPic" />
+                                <Image src="/images/buildTabs/photo2.jpg" width={409} height={279} alt="Обследование" />
                             </div>
                             <div className="BuildInfoSliderItemText">
-                                <h2>Lorsectetur lorem ipsum dolor sit amet, consectetur</h2>
-                                <p>Learn more about Social Media</p>
+                                <h2>Проверка здоровья</h2>
+                                <p>Процесс донорства обычно включает в себя медицинские обследования, чтобы убедиться, что донор находится в хорошем состоянии здоровья. Это может помочь выявить потенциальные проблемы со здоровьем и предотвратить развитие болезней.</p>
                             </div>
                         </div>
                     </div>

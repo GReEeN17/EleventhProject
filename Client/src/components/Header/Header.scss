@@ -1,5 +1,3 @@
-// fonts from public\fonts\GeneralSans_Complete\Fonts\WEB\css\general-sans.css
-@import url("../../../public/fonts/GeneralSans/css/general-sans.css");
 
 .header {
   display: flex;
@@ -27,7 +25,6 @@ nav {
 .logo {
   color: #F0F0F0;
   font-size: 1.125rem;
-  font-family: GeneralSans-Semibold, serif;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -46,7 +43,6 @@ nav {
   border: none;
   color: rgba(240, 240, 240, 0.58);
   font-size: 0.875rem;
-  font-family: GeneralSans-Semibold;
   font-style: normal;
   font-weight: 600;
   align-items: center;
@@ -78,7 +74,6 @@ nav {
 }
 
 .links a {
-  font-family: GeneralSans-Semibold;
   font-size: 0.875rem;
 }
 
@@ -120,7 +115,6 @@ nav {
 }
 .auth {
   display: flex;
-  font-family: GeneralSans-Semibold;
   padding: 0.3125rem 1rem 0.4375rem 1rem;
   justify-content: center;
   align-items: center;
@@ -130,7 +124,6 @@ nav {
 .authLogin {
   position: relative;
   display: inline-block;
-  font-family: GeneralSans-Semibold;
   padding: 0.3125rem 1rem 0.4375rem 1rem;
   justify-content: center;
   align-items: center;

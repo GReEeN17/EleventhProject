@@ -39,24 +39,13 @@ const Header = observer(() => {
                 <Link href="/">
                     <div className="logo">
                         <Logo />
-                        <div className="title">
-                            <p>FNM</p>
-                        </div>
                     </div>
                 </Link>
-                <div className="searchField">
-                    <input type="search" id="search" className="search" placeholder="Search..." />
-                </div>
                 <div className="links">
-                    <div className="products">
-                        <Link href={"/Catalog"}>Catalog</Link>
+                    <div className="AboutUs">
+                        <Link href={"/AboutUs"}>О нас</Link>
                     </div>
-                    <div className="news">
-                        <Link href={"/news"}>News</Link>
-                    </div>
-                    <div className="support">
-                        <Link href={"/support"}>Support</Link>
-                    </div>
+
                 </div>
                 {/* <Socials /> */}
                 {authStore._isAuth ? (
@@ -69,14 +58,12 @@ const Header = observer(() => {
                         <div className={dropsStore.isProfileActive ? 'dropdown active' : 'dropdown'}>
                             <Link className='dropitem' href="/"  onClick={() => dropsStore.setIsProfileActive(false)}>Profile</Link>
                             <Link className='dropitem' href="/settings" onClick={() => dropsStore.setIsProfileActive(false)}>Settings</Link>
-                            <Link className='dropitem' href="/balance" onClick={() => dropsStore.setIsProfileActive(false)}>Balance</Link>
-                            <Link className='dropitem' href="/alerts" onClick={() => dropsStore.setIsProfileActive(false)}>Alerts</Link>
-                            <button className='dropitem' onClick={logout}>Log Out</button>
+                            <button className='dropitem' onClick={logout}>Выйти</button>
                         </div>
                     </div>
                 ) : (
                     <div className="auth">
-                        <button className="Signin" onClick={() => modalAuthStore.setIsActive(true)}>Sign in</button>
+                        <button className="Signin" onClick={() => modalAuthStore.setIsActive(true)}>Войти</button>
                     </div>
                 )}
             </nav>
