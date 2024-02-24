@@ -34,7 +34,7 @@ public class CityService : ICityService
     public Task<CityModel> GetCityById(int cityId)
     {
         var entity = _cityRepository.GetCity().Where(city => city.Id == cityId);
-        var cityModel = _mapper.Map<CityModel>(entity);
+        var cityModel = new CityModel(entity.First().Title);
         
         return Task.FromResult(cityModel);
     }
